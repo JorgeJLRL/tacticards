@@ -24,17 +24,18 @@ function Contactanos() {
     }
 
 
-    return (<div className={Style.contactField} >
+    return (
+    <div className={Style.contactField} >
         
         <div className={Style.formInputContent} id="contactanos">
 
 
             <div className={Style.form__field}>
                 
-                <input type="input" className={Style.form__field} placeholder="name" name="name" id='name' required onChange={(e) => { setNombre(e.target.value) }} />
+                <input type="input" className={Style.form__field} placeholder="Nombre" name="Nombre" id='Nombre' required onChange={(e) => { setNombre(e.target.value) }}/>
 
 
-                <input type="input" className={Style.form__field} placeholder="Email" name="Email" id='Email' required onChange={(e) => { setEmail(e.target.value) }} />
+                <input type="input" className={Style.form__field} placeholder="Correo" name="Correo" id='Correo' required onChange={(e) => { setEmail(e.target.value) }} />
             
 
                 <input type="input" className={Style.form__field} placeholder="Telefono" name="Telefono" id='Telefono' required onChange={(e) => { setTelefono(e.target.value) }} />

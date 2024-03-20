@@ -2,7 +2,7 @@ import { ST } from "next/dist/shared/lib/utils"
 import Style from "../footer/footer.module.css"
 export default function Footer() {
     return (
-        <>
+       
         <div className={Style.FooterBox}>
             <div className={Style.Content}>
                 <div className={Style.ContentBox1}>
@@ -26,6 +26,6 @@ export default function Footer() {
                 Copyright @ Tácticards 2024
             </div>
         </div>
-        </>
+        
     )
 }

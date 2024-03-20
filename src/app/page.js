@@ -2,10 +2,13 @@ import Image from "next/image";
 import Contact from "./components/contact/contact.js"
 
 export default function Home() {
+
   return (
     <div>
+      <div className="imgBoxHome">
 
-      <img src="../images/Diseño de tarjeta de presentación digital TáctiCards 3-12.png" className="imgHome"></img>
+        <img src="../images/Diseño de tarjeta de presentación digital TáctiCards 3-12.png" className="imgHome"></img>
+      </div>
       <div className="HomeText">
         <h2>Tarjetas Inteligentes</h2>
         <p>Impresiona a tus clientes potenciales con la nueva era en tarjetas de presentacion</p>

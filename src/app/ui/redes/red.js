@@ -45,7 +45,7 @@ export default function Red(){
                     <p>Sitio Web</p>
                 </div>
                 <div className="flex-1 items-center justify-center flex flex-col text-center">
-                    <img src="/images/Message.png" className={style.imgRed}/>
+                    <img src="/images/message.png" className={style.imgRed}/>
                     <p>E-mail</p>
                 </div>
             </div>
