@@ -1,0 +1,11 @@
+@media screen and (max-width:450px) {
+    .imagebg{
+      
+    }
+    
+    .userImg{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+}
