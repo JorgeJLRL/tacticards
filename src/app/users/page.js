@@ -26,9 +26,8 @@ export default function User(){
                 </div>
     
     
-    
                 <ul>
-                    <li className="flex items-center py-1"><img src="./images/telephoneRad.png"/><a className="px-2" href="tel:6688562647">(668)8562647</a></li>
+                    <li className="flex items-center py-1"><img src="./images/telephoneRad.png"/><a className="px-2" href="tel:+34678567876">(668)8562647</a></li>
                     <li className="flex items-center py-1"><img src="./images/telephoneRad.png"/><a className="px-2">pedrobaez@tacticas.mx</a></li>
                     <li className="flex items-center py-1"><img src="./images/telephoneRad.png"/><a className="px-2">www.tacticas.mx</a></li>
                     <li className="flex items-center py-1"><img src="./images/telephoneRad.png"/><a className="px-2">H. Galeana 1491, Fracc. Sta Teresa, <br/> Los Mochis, Sin. CP 81271</a></li>

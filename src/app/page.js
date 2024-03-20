@@ -1,10 +1,12 @@
 import Image from "next/image";
-
+import Contact from "./components/contact/contact.js"
 export default function Home() {
   return (
-  
-        <h1>a</h1>
-      
-  
+  <div>
+    
+         
+          <Contact></Contact>
+          
+  </div>
   );
 }
