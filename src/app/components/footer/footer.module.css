@@ -1,0 +1,41 @@
+.FooterBox{
+    background-color: rgb(15, 0, 80);
+    color: white;
+    position: relative;
+    padding: 10px;
+    width: 100%;
+}
+.Content{
+    display: flex;
+    margin: 0 auto; 
+    justify-content: space-between;
+    height: auto;
+    max-width: 70vw;
+}
+.ContentBox2{
+    width: 100px;
+}
+.ContentBox3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid white;
+}
+.ContentBoxImages{
+    display: flex;
+    max-width: 30px;
+    height: auto;
+   
+}
+
+.ContentImages{
+    
+    height: auto;
+    width: 100%;
+}
+.Logo{
+    height: auto;
+    width: 100px;
+}

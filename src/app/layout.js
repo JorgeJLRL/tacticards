@@ -1,6 +1,7 @@
 import "./globals.css";
 import {montserrat} from "./ui/fonts"
-
+import Footer from "../app/components/footer/footer"
+import { IoMenuOutline } from "react-icons/io5";
 
 export const metadata = {
   title: "Tacticards",
@@ -10,11 +11,18 @@ export const metadata = {
 export default function RootLayout({ children }) {//layout todo el contorno de nuestra pagina
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialised`}> 
+       
+       
 
+      <body className={`${montserrat.className} antialised`}> 
+        <header className="HeaderBox">
+        <IoMenuOutline />
+          <img src="../images/Logo.png" className="TacticardsLogoHeader"></img>
+        </header>
         {children}
-        <footer className="flex justify-center items-center py-10">Tacticas</footer>
+        
       </body>
+      <Footer></Footer>
     </html>
   );
 }

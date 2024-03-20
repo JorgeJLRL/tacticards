@@ -29,9 +29,8 @@ function Contactanos() {
         <div className={Style.formInputContent} id="contactanos">
 
 
-            <div class={Style.form__field}>
-            <h2>Lets talk</h2>
-
+            <div className={Style.form__field}>
+                
                 <input type="input" className={Style.form__field} placeholder="name" name="name" id='name' required onChange={(e) => { setNombre(e.target.value) }} />
 
 

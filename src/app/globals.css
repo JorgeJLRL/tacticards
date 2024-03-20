@@ -3,3 +3,29 @@
 @tailwind utilities;
 
 
+.HomeText{
+    text-align: center;
+}
+.imgHome{
+    width: 100%;
+    height: auto;
+}
+h2{
+    font-weight: bold;
+    font-size: 1rem;
+}
+p{
+    font-size: .75rem;
+}
+
+.HeaderBox{
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.TacticardsLogoHeader{
+    height: auto;
+    width: 150px;
+}
