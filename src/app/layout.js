@@ -16,8 +16,9 @@ export default function RootLayout({ children }) {//layout todo el contorno de n
       <body className={`${montserrat.className} antialised`}>
 
         <Menu />
-        <Mensaje></Mensaje>
+      
         {children}
+        <Mensaje/>
         <Footer />
       </body>
 

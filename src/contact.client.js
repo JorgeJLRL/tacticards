@@ -1,4 +1,5 @@
 'use client'
+import Styles from "../src/app/ui/button/button.module.css"
 const Mensaje = () => {
     const handleSaveContact = () => {
       const vCard = `
@@ -19,7 +20,7 @@ const Mensaje = () => {
   
     return (
       <div>
-        <button onClick={handleSaveContact}>Save Contact</button>
+        <button className={Styles.boton} onClick={handleSaveContact}>Guardar contacto</button>
       </div>
     );
   };

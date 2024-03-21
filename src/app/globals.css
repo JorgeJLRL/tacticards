@@ -43,6 +43,21 @@ p{
     width: 150px;
   
 }
+.menuDisplayed{
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    left: 0;
+    flex-direction: column;
+    justify-content: start;;
+    top: 65px;
+}
+.textMenu{
+   
+    text-align: center;
+}
+
 @media screen and(max-width:450px) {
     .imgBoxHome{
         display: flex;
