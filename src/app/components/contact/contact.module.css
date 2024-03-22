@@ -59,8 +59,8 @@
     border-radius: 5px;
 }
 
-.form__fieldMensaje {
-    display: flex;
+.form__fieldMensaje::placeholder {
+    color: black    ;
 
 }
 
