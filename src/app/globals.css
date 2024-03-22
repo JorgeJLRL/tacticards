@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+input::placeholder{
+    color: black;
+}
 
 .HomeText{
     text-align: center;
@@ -12,6 +15,9 @@
     height: auto;
     width: 100%;
 }
+.contentBoxHome{
+    padding: 10px;
+}
 .imgHome{
     max-width: auto;
     max-height: 500px;
@@ -21,7 +27,8 @@ h2{
     font-size: 1rem;
 }
 p{
-    font-size: .75rem;
+    font-size: .9rem;
+    font-size: small;
 }
 
 .HeaderBox{
@@ -45,12 +52,11 @@ p{
 }
 .menuDisplayed{
     background-color: white;
+    flex-direction: column;
+    justify-content: start;
     position: absolute;
     width: 100%;
-    display: flex;
     left: 0;
-    flex-direction: column;
-    justify-content: start;;
     top: 65px;
 }
 .textMenu{

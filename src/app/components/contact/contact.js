@@ -1,5 +1,4 @@
 "use client";
-import "./contact.module.css"
 import { useState } from 'react'
 import emailjs from 'emailjs-com';
 import Style from "../contact/contact.module.css"
@@ -41,12 +40,12 @@ function Contactanos() {
                 <input type="input" className={Style.form__field} placeholder="Telefono" name="Telefono" id='Telefono' required onChange={(e) => { setTelefono(e.target.value) }} />
 
 
-                <input type="input" className={Style.form__field} placeholder="Mensaje" name="Mensaje" id='Mensaje' required onChange={(e) => { setMensaje(e.target.value) }} />
+                <textarea type="input" className={Style.form__fieldMensaje} placeholder="Mensaje" name="Mensaje" id='Mensaje' required onChange={(e) => { setMensaje(e.target.value) }} />
 
 
                 <div className={Style.wrapSend}>
 
-                    <BotonForm className={Style.buttonSend} type="submit" variant="contained" onClick={send} text={"Enviar"}></BotonForm>
+                    <BotonForm className={Style.buttonSend} type="submit" variant="contained" onClick={send} text={"Enviar Mensaje"}></BotonForm>
                 </div>
 
             </div>

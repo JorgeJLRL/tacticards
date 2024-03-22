@@ -2,7 +2,7 @@ import { ST } from "next/dist/shared/lib/utils"
 import Style from "../footer/footer.module.css"
 export default function Footer() {
     return (
-       
+
         <div className={Style.FooterBox}>
             <div className={Style.Content}>
                 <div className={Style.ContentBox1}>
@@ -13,11 +13,17 @@ export default function Footer() {
 
                 </div>
                 <div className={Style.ContentBox2}>
-                    <p>Siguenos</p>
+                    <p>Siguenos:</p>
                     <div className={Style.ContentBoxImages}>
-                        <img className={Style.ContentImages} src="../images/Diseño de tarjeta de presentación digital TáctiCards-16.png"></img>
+                        <div className={Style.imgSizeBox}>
+                            <img className={Style.ContentImages} src="../images/Diseño de tarjeta de presentación digital TáctiCards-16.png"></img>
+                        </div>
+                        <div className={Style.imgSizeBox}>
                         <img className={Style.ContentImages} src="../images/Diseño de tarjeta de presentación digital TáctiCards-14.png"></img>
+                        </div>
+                        <div className={Style.imgSizeBox}>
                         <img className={Style.ContentImages} src="../images/Diseño de tarjeta de presentación digital TáctiCards-15.png"></img>
+                        </div>
                     </div>
                     <img src="../images/Diseño de logo TáctiCards blanco_Mesa de trabajo 1-02.png" className={Style.Logo}></img>
                 </div>
@@ -26,6 +32,6 @@ export default function Footer() {
                 Copyright @ Tácticards 2024
             </div>
         </div>
-        
+
     )
 }

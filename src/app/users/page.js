@@ -1,7 +1,7 @@
 import styles from "../ui/home.module.css"
 import stylecell from "../ui/cellphoneUsers/cellphone.module.css"
 import ButtonTacticas from "../ui/button/button"
-import Red from "../ui/redes/red"
+import Red from "../components/redes/red"
 export default function User(){
     return(
         <div className={stylecell.imagebg}>

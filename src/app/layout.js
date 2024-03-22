@@ -1,7 +1,7 @@
 import "./globals.css";
 import { montserrat } from "./ui/fonts"
 import Footer from "../app/components/footer/footer"
-import Mensaje from "../contact.client"
+
 import Menu from "../app/menu"
 export const metadata = {
   title: "Tacticards",
@@ -13,12 +13,12 @@ export default function RootLayout({ children }) {//layout todo el contorno de n
   return (
     <html>
 
-      <body className={`${montserrat.className} antialised`}>
+      <body >
 
         <Menu />
       
         {children}
-        <Mensaje/>
+        
         <Footer />
       </body>
 

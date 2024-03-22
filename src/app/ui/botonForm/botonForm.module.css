@@ -1,12 +1,13 @@
 
 .boton{
-    background: rgb(0, 52, 88);
-    background: linear-gradient(180deg, rgba(0, 52, 88, 1) 0%, rgba(0, 152, 255, 1) 100%);
+    background: rgb(31,90,130);
+    background: linear-gradient(180deg, rgba(31,90,130,1) 0%, rgba(23,137,214,1) 54%, rgba(76,174,238,1) 99%, rgba(194,212,224,1) 100%);
     color: white;
     border-radius: 5px;
     padding: 5px;
     width: 100%;
     margin: 10px 0;
+    font-size: larger;
 }
 
  
@@ -14,8 +15,8 @@
 
 
     .boton {
-        background: rgb(0, 52, 88);
-        background: linear-gradient(180deg, rgba(0, 52, 88, 1) 0%, rgba(0, 152, 255, 1) 100%);
+        background: rgb(31,90,130);
+        background: linear-gradient(180deg, rgba(31,90,130,1) 0%, rgba(23,137,214,1) 54%, rgba(76,174,238,1) 99%, rgba(194,212,224,1) 100%);
         color: white;
         border-radius: 5px;
         padding: 5px;

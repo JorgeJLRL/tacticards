@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Contact from "./components/contact/contact.js"
-
+import Mensaje from "../contact.client"
 export default function Home() {
 
   return (
@@ -9,14 +9,16 @@ export default function Home() {
 
         <img src="../images/Diseño de tarjeta de presentación digital TáctiCards 3-12.png" className="imgHome"></img>
       </div>
-      <div className="HomeText">
-        <h2>Tarjetas Inteligentes</h2>
-        <p>Impresiona a tus clientes potenciales con la nueva era en tarjetas de presentacion</p>
-        <h2>Haz tu pedido</h2>
-        <p>¿tienes alguna duda o deseas pedir una o màs tarjetas? Envìa mensaje y con gusto te atenderemos</p>
-
+      <div className="contentBoxHome">
+        <div className="HomeText">
+          <h2>Tarjetas Inteligentes</h2>
+          <p>Impresiona a tus clientes potenciales con la nueva era en tarjetas de presentacion</p>
+          <h2>Haz tu pedido</h2>
+          <p>¿tienes alguna duda o deseas pedir una o màs tarjetas? Envìa mensaje y con gusto te atenderemos</p>
+        </div>
+        <Contact></Contact>
+        <Mensaje/>
       </div>
-      <Contact></Contact>
 
     </div>
   );
