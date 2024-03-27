@@ -5,18 +5,18 @@ export default function Red(){
     return(
         <div>
             <div className={style.boxflex}>
-                <div className={styleFlex}>
-                    <img src="/images/whatsapp.png" className={style.imgRed}/>
+                <a className={styleFlex} href="https://wa.me/6688562647">
+                    <img src="/images/whatsapp.png" className={style.imgRed} />
                     <p>Whatsapp</p>
-                </div>
-                <div className={styleFlex}>
+                </a>
+                <a className={styleFlex} href="https://www.facebook.com/baezvisaiz" target="_blank">
                     <img src="/images/facebook.png" className={style.imgRed}/>
                     <p>Facebook</p>
-                </div>
-                <div className={styleFlex}>
+                </a>
+                <a className={styleFlex} href="https://www.instagram.com/pedro_baezv/" target="_blank">
                     <img src="/images/instagram.png" className={style.imgRed}/>
                     <p>Instagram</p>
-                </div>
+                </a>
             </div>
 
                 <div className={style.boxflex}>

@@ -16,16 +16,16 @@ export default function Footer() {
                     <p>Siguenos:</p>
                     <div className={Style.ContentBoxImages}>
                         <div className={Style.imgSizeBox}>
-                            <img className={Style.ContentImages} src="../images/Diseño de tarjeta de presentación digital TáctiCards-16.png"></img>
+                            <img className={Style.ContentImages} src="../images/facebookLogo.png"></img>
                         </div>
                         <div className={Style.imgSizeBox}>
-                        <img className={Style.ContentImages} src="../images/Diseño de tarjeta de presentación digital TáctiCards-14.png"></img>
+                        <img className={Style.ContentImages} src="../images/linkedinLogo.png"></img>
                         </div>
                         <div className={Style.imgSizeBox}>
-                        <img className={Style.ContentImages} src="../images/Diseño de tarjeta de presentación digital TáctiCards-15.png"></img>
+                        <img className={Style.ContentImages} src="/images/igLogo.png"></img>
                         </div>
                     </div>
-                    <img src="../images/Diseño de logo TáctiCards blanco_Mesa de trabajo 1-02.png" className={Style.Logo}></img>
+                    <img src="/images/disenoLogo.png" className={Style.Logo}></img>
                 </div>
             </div>
             <div className={Style.ContentBox3}>

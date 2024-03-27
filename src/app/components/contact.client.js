@@ -1,5 +1,5 @@
 'use client'
-import Styles from "../src/app/ui/button/button.module.css"
+import Styles from "../ui/button/button.module.css"
 const Mensaje = () => {
     const handleSaveContact = () => {
       const vCard = `
