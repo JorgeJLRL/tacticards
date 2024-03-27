@@ -24,7 +24,7 @@ export default function Menu() {
                             <button onClick={toggleState}><IoMdClose /></button>
                             <div className="menuDisplayed">
                                 <Link href="/"><h2 className="textMenu">Inicio</h2></Link>
-                                <Link href="/users"><h2 className="textMenu">Contacto</h2></Link>
+                                <Link href="/pedro-baez"><h2 className="textMenu">Contacto</h2></Link>
                             </div>
                          </div>
                     ) }
