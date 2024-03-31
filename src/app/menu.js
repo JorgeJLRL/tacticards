@@ -3,7 +3,6 @@ import { IoMenuOutline } from "react-icons/io5";
 import React, { useState } from 'react'
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link"
-
 export default function Menu() {
 
 
@@ -13,7 +12,7 @@ export default function Menu() {
       setValue(!value)
         
     }
-   
+    
 
     return (
      
@@ -23,8 +22,8 @@ export default function Menu() {
                          <div>
                             <button onClick={toggleState}><IoMdClose /></button>
                             <div className="menuDisplayed">
-                                <Link href="/"><h2 className="textMenu">Inicio</h2></Link>
-                                <Link href="/pedro-baez"><h2 className="textMenu">Contacto</h2></Link>
+                                <Link href="/"><h2 className="textMenu"><button onClick={toggleState}>Inicio</button></h2></Link>
+                                <Link href="/pedrobaez"><h2 className="textMenu"><button onClick={toggleState}>Contacto</button></h2></Link>
                             </div>
                          </div>
                     ) }

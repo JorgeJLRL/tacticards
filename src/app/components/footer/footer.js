@@ -1,4 +1,4 @@
-import { ST } from "next/dist/shared/lib/utils"
+
 import Style from "../footer/footer.module.css"
 export default function Footer() {
     return (

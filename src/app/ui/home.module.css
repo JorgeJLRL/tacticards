@@ -7,33 +7,3 @@
     border-right: 50px solid transparent;
     border-bottom: 50px solid black;
 }
-.imagebg{
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    background-color: ghostwhite;
-}
-.userImg{
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    position: relative;
-    margin: 0 auto;
-    bottom: 75px;
-    object-fit: cover;
-   
-}
-
-.contentBox{
-    position: relative;
-    bottom: 75px;
-    margin: 0 20px;
-}
-.unorderedList{
-    max-width: 300px;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  margin: 0 auto;
-}

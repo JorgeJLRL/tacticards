@@ -20,7 +20,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
@@ -28,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     "build/types/**/*.ts"
-  ],
+, "src/app/layout.js"  ],
   "exclude": [
     "node_modules"
   ]

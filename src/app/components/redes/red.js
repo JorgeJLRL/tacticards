@@ -1,7 +1,11 @@
 import style from "../redes/red.module.css"
+
+
+import 'tailwindcss/tailwind.css'
+
 export default function Red(){
     
-    const styleFlex= "flex-1 items-center justify-center flex flex-col text-center flex-wrap"
+    const styleFlex= "flex-1 items-center justify-center flex flex-col text-center flex-wrap w-[10]"
     return(
         <div>
             <div className={style.boxflex}>
