@@ -23,7 +23,8 @@ export default function Menu() {
                             <button onClick={toggleState}><IoMdClose /></button>
                             <div className="menuDisplayed">
                                 <Link href="/"><h2 className="textMenu"><button onClick={toggleState}>Inicio</button></h2></Link>
-                                <Link href="/pedrobaez"><h2 className="textMenu"><button onClick={toggleState}>Contacto</button></h2></Link>
+                                <Link href="/pedrobaez" prefetch={false}><h2 className="textMenu"><button onClick={toggleState}>Contacto</button></h2></Link>
+                                
                             </div>
                          </div>
                     ) }
