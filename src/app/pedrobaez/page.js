@@ -6,6 +6,7 @@ import Red from "../components/redes/red.js"
 
 
 
+
 export default function User(){
 
     return(
@@ -44,6 +45,7 @@ export default function User(){
                 </ul>
                  
                 <Mensaje></Mensaje>
+                
                 <Red></Red>
         </div>
 
