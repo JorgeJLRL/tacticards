@@ -29,7 +29,7 @@ export default function Red(){
                     <p>Linkedin</p>
                 </div>
                 <div className={styleFlex}>
-                    <img src="/images/ubication.png" className={style.imgRed}/>
+                    <img src="/images/iconodeubicacion.png" className={style.imgRed}/>
                     <p>Ubicacion</p>
                 </div>
                 <div className={styleFlex}>
@@ -41,15 +41,15 @@ export default function Red(){
 
                 <div className={style.boxflex}>
                 <div className="flex-1 items-center justify-center flex flex-col text-center">
-                    <img src="/images/telephone.png" className={style.imgRed}/>
+                    <img src="/images/iconodetelefono.png" className={style.imgRed}/>
                     <p>Llamar</p>
                 </div>
                 <div className="flex-1 items-center justify-center flex flex-col text-center">
-                    <img src="/images/website.png" className={style.imgRed}/>
+                    <img src="/images/iconodesitioweb.png" className={style.imgRed}/>
                     <p>Sitio Web</p>
                 </div>
                 <div className="flex-1 items-center justify-center flex flex-col text-center">
-                    <img src="/images/message.png" className={style.imgRed}/>
+                    <img src="/images/iconodecorreo.png" className={style.imgRed}/>
                     <p>E-mail</p>
                 </div>
             </div>

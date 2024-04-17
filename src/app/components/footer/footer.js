@@ -16,10 +16,10 @@ export default function Footer() {
                     <p>Siguenos:</p>
                     <div className={Style.ContentBoxImages}>
                         <div className={Style.imgSizeBox}>
-                            <img className={Style.ContentImages} src="../images/facebookLogo.png"></img>
+                            <img className={Style.ContentImages} src="/images/facebookLogo.png"></img>
                         </div>
                         <div className={Style.imgSizeBox}>
-                        <img className={Style.ContentImages} src="../images/linkedinLogo.png"></img>
+                        <img className={Style.ContentImages} src="/images/linkedinLogo.png"></img>
                         </div>
                         <div className={Style.imgSizeBox}>
                         <img className={Style.ContentImages} src="/images/igLogo.png"></img>

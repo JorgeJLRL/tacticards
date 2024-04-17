@@ -1,0 +1,69 @@
+
+
+.imageBoxBackground{
+    object-fit: contain;
+    background-color: ghostwhite;
+    max-height: auto;
+    max-width: 1200px;
+    min-width: 200px;
+    margin: 0 auto;
+}
+.imageBackground{
+    width: 100%;
+    height: 100%;
+  
+}
+.imagebg{
+    
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background-color: ghostwhite;
+}
+.userImg{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    margin: 0 auto;
+    bottom: 75px;
+    object-fit: cover;
+   
+}
+
+.contentBox{
+    position: relative;
+    bottom: 75px;
+    margin: 0 20px;
+}
+.unorderedList{
+    max-width: 300px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  
+}
+.listContact{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 5px 0;
+}
+.anchorText{
+    padding: 0 10px;
+}
+
+@media screen and(max-width:450px) {
+
+    .userImg{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+}
+

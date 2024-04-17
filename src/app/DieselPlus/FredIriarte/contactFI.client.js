@@ -1,5 +1,5 @@
 'use client'
-import Styles from "../app/ui/button/button.module.css";
+import Styles from "../../ui/button/button.module.css";
 
 
 const Mensaje = () => {
@@ -7,9 +7,10 @@ const Mensaje = () => {
   
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:Pedro Baez
-TEL;TYPE=WORK,VOICE:6688562647
-EMAIL:pedrobaez@tacticas.mx
+FN:Fred Iriarte
+TEL;TYPE=WORK,VOICE:6682533376
+EMAIL:gerencia@diesel.plus
+URL:www.dieselplus.com.mx
 
 END:VCARD`;
 
@@ -21,7 +22,7 @@ END:VCARD`;
 
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'Pedro-Baez.vcf');
+      link.setAttribute('download', 'Gamaliel-Rodriguez.vcf');
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();

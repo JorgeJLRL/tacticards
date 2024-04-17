@@ -29,7 +29,7 @@ export default function Menu() {
                          </div>
                     ) }
                 </div>
-                <div className="flex justify-center"><img src="../images/Logo.png" className="TacticardsLogoHeader"></img></div>
+                <div className="flex justify-center"><img src="/images/Logo.png" className="TacticardsLogoHeader"></img></div>
                 <div></div>
             </div>
      
