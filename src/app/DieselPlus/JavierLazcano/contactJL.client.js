@@ -7,9 +7,9 @@ const Mensaje = () => {
   
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:Gamaliel Rodriguez
-TEL;TYPE=WORK,VOICE:6672437043
-EMAIL:ventas5@diesel.plus
+FN:Javier Lazcano
+TEL;TYPE=WORK,VOICE:6683248186
+EMAIL:ventas4@diesel.plus
 URL:www.dieselplus.com.mx
 
 END:VCARD`;

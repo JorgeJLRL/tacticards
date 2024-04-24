@@ -7,9 +7,9 @@ const Mensaje = () => {
   
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:Gamaliel Rodriguez
-TEL;TYPE=WORK,VOICE:6672437043
-EMAIL:ventas5@diesel.plus
+FN:Enrique Murrieta
+TEL;TYPE=WORK,VOICE:6683962606
+EMAIL:enriquemurrieta@diesel.plus
 URL:www.dieselplus.com.mx
 
 END:VCARD`;
@@ -22,7 +22,7 @@ END:VCARD`;
 
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'Gamaliel-Rodriguez.vcf');
+      link.setAttribute('download', 'Enrique-Murrieta.vcf');
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();

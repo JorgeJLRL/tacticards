@@ -1,8 +1,8 @@
 import styles from "../../DieselPlus/dieselplus.module.css";
 import ButtonTacticas from "../../ui/button/button.js"
-import Mensaje from "../../DieselPlus/GamalielRodriguez/contactGR.client.js"
+import Mensaje from "../../DieselPlus/DavidGerman/contactDGclient.js"
 import React from "react"
-import Red from "../../components/dieselplusredes/GamalielRedes/redG.js"
+import Red from "../../components/dieselplusredes/DavidGerman/redDG.js"
 
 
 
@@ -40,7 +40,8 @@ export default function User(){
                     &amp;name=David%German">(644) 170 0021</a></li>
                     <li className={styles.listContact}><img className={styles.firstsection}  src="/images/Correo.png"/><a className={styles.anchorText}>ventasobregon2@diesel.plus</a></li>
                     <li className={styles.listContact}><img className={styles.firstsection}  src="/images/sitioweb.png"/><a className={styles.anchorText} href="https://www.dieselplus.com.mx" target="_blank">www.dieselplus.com.mx</a></li>
-                    <li className={styles.listContact}><img className={styles.firstsection}  src="/images/telefonofijo.png"/><a className={styles.anchorText} href="tel:+6681700021">(668) 170 0021</a></li>
+                    <li className={styles.listContact}><img className={styles.firstsection}  src="/images/ubicacion.png"/><a className={styles.anchorText}>Carretera Norman E. Bourlag S/N, Campo 6, Cajeme, Sonora</a></li>
+                    <li className={styles.listContact}><img className={styles.firstsection}  src="/images/telefonofijo.png"/><a className={styles.anchorText} href="tel:+6641430815">(664) 143 0815</a></li>
                 </ul>
                  
                 <Mensaje></Mensaje>

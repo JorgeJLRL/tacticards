@@ -1,8 +1,8 @@
 import styles from "../../DieselPlus/dieselplus.module.css";
 import ButtonTacticas from "../../ui/button/button.js"
-import Mensaje from "../../DieselPlus/FredIriarte/contactFI.client.js"
+import Mensaje from "../../DieselPlus/OscarCuadrasAmarillas/contactOCAclient.js"
 import React from "react"
-import Red from "../../components/dieselplusredes/FredIriarte/redFI.js"
+import Red from "../../components/dieselplusredes/OscarCuadrasAmarillasRedes/redFI.js"
 
 
 
