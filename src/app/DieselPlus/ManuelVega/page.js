@@ -20,7 +20,7 @@ export default function User(){
                     />
                 </div>
                 <img
-                src={"/images/GamalielRodriguez.png"}
+                src={"/images/ManuelVega.png"}
                            className={styles.userImgBB}
                 />
          

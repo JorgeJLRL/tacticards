@@ -7,9 +7,9 @@ const Mensaje = () => {
   
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:Miguel Astorga
-TEL;TYPE=WORK,VOICE:6681429508
-EMAIL:ventas1@diesel.plus
+FN:David Germán Valdez
+TEL;TYPE=WORK,VOICE:6681700021
+EMAIL:ventasobregon2@diesel.plus
 URL:www.dieselplus.com.mx
 
 END:VCARD`;
@@ -22,7 +22,7 @@ END:VCARD`;
 
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'Miguel-Astorga.vcf');
+      link.setAttribute('download', 'David-German.vcf');
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();

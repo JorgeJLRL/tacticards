@@ -22,7 +22,7 @@ END:VCARD`;
 
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'Gamaliel-Rodriguez.vcf');
+      link.setAttribute('download', 'Fred-Iriarte.vcf');
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
