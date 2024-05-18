@@ -5,10 +5,10 @@ const Mensaje = () => {
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:José Carlos García Márquez
-TEL;TYPE=WORK,VOICE:6682255985
-EMAIL:oftalmologia@cofta.mx
-URL:https://cofta.mx/
+FN:Sergio Dominguez
+TEL;TYPE=WORK,VOICE:6688162165
+EMAIL:sergiodominguez@ubisat.com.mx
+URL:https://ubisat.mx/
 
 END:VCARD`;
 
@@ -18,7 +18,7 @@ END:VCARD`;
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "Garcia-Marquez.vcf");
+      link.setAttribute("download", "Sergio-Dominguez.vcf");
       link.style.display = "none";
       document.body.appendChild(link);
       link.click();

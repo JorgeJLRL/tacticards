@@ -1,4 +1,4 @@
-import style from "../../app/components/redes/red.module.css";
+import style from "../../components/redes/red.module.css";
 
 import "tailwindcss/tailwind.css";
 

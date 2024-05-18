@@ -18,7 +18,7 @@ END:VCARD`;
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "Hiram-Murrieta.vcf");
+      link.setAttribute("download", "Sergio-Dominguez.vcf");
       link.style.display = "none";
       document.body.appendChild(link);
       link.click();

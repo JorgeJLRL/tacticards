@@ -12,7 +12,7 @@ export default function Red() {
     ubicacion: "https://maps.app.goo.gl/U5StjHgywK5uQvgT6",
     telefono: "6688155308",
     sitioweb: "https://cofta.mx/",
-    email: "mailto:hirammurrieta@diesel.plus",
+    email: "mailto:oftalmologia@cofta.mx",
     tiktok: "https://www.tiktok.com/@dr.garciamarquez",
     youtube: "https://www.youtube.com/@CentroOftalmologicoDeLosMochis",
     googleNegocio: "https://g.page/r/CdRjQFzOIi3GEAI/review",

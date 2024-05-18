@@ -1,0 +1,74 @@
+.flexBoxGIS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+.ImageBoxFlex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imageBox1{
+    position: relative;
+    width: auto;
+    height: auto;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.imageBox2{
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.imageBox3{
+    position: relative;
+    width: 30vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.imgResponsive{
+    position: relative;
+    width: auto;
+    height: 20vh;
+   
+}
+.btnVerInfo{
+    position: relative;
+    background-color: #29ABE2;
+    color: white;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+@media screen and (max-width: 450px) {
+    .imgResponsive{
+        position: relative;
+        width: auto;
+        height: 10vh;
+       
+    }
+    .imageBox3{
+        position: relative;
+        width: auto;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

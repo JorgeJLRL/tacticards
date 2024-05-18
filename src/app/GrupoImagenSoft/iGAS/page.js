@@ -1,12 +1,12 @@
-import styles from "../../app/ui/RedUI.module.css";
-import ButtonTacticas from "../../app/ui/button/button";
-import Mensaje from "../../app/SergioDominguez/contactSD.client";
+import styles from "../../ui/RedUI.module.css";
+import ButtonTacticas from "../../ui/button/button.module.css";
+import Mensaje from "../../GrupoImagenSoft/iGAS/contactiGAS.client";
 import React from "react";
-import Red from "../../app/SergioDominguez/redSD";
+import Red from "../../GrupoImagenSoft/iGAS/rediGas";
 
 export default function User() {
-  const fotoperfil = "/images/SergioDominguez.png";
-  const name = "Ing. Sergio Domínguez";
+  const fotoperfil = "/images/perfilOculto.png";
+  const name = "iGAS";
   const puesto = "Asesor Comercial";
   const empresa = "Ubisat";
   const whatsapp = "6681550789";
