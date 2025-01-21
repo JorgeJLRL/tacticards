@@ -12,7 +12,7 @@ export default function Red() {
     instagramurl: "https://www.instagram.com/proodecs/",
     linkedin: "https://mx.linkedin.com/in/josé-ángel-báez-olivo-097081120",
     telefono: "6442617543",
-    sitioweb: "proodecs.com",
+    sitioweb: "https://proodecs.com/",
     email: "mailto:abaez@proodecs.com",
     dropbox:
       "https://www.dropbox.com/scl/fo/0w39vhj4ik9o9mvt0a7jg/ADro7G2LL1KUbQQfu8RyYjg?rlkey=b1cq3vquidjmwi639lj12zht3&st=7pov34we&dl=0",
@@ -50,7 +50,7 @@ export default function Red() {
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={[persona.sitioweb]} target="_blank">
+          <a href={persona.sitioweb} target="_blank">
             <img src="/images/iconodesitioweb.png" className={style.imgRed} />
             <p>Sitio Web</p>
           </a>
@@ -65,7 +65,7 @@ export default function Red() {
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={persona.googleNegocio} target="_blank">
+          <a href={persona.dropbox} target="_blank">
             <img src="/images/iconoDropBox.png" className={style.imgRed} />
             <p>Dropbox</p>
           </a>
