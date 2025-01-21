@@ -9,7 +9,7 @@ export default function User() {
   const name = "José Ángel Báez Olivo";
   const puesto = "Gerente";
   const empresa = "PROODECS";
-  const whatsapp = "6442617543";
+  const whatsapp = "526442617543";
   const correo = "abaez@proodecs.com";
   const sitioweb = "proodecs.com";
   const ubicacion = "Los Mochis, Sinaloa ";

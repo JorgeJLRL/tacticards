@@ -6,7 +6,7 @@ const Mensaje = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
 FN:JOSE ANGEL BAEZ OLIVO
-TEL;TYPE=WORK,VOICE:6442617543
+TEL;TYPE=WORK,VOICE:526442617543
 EMAIL:abaez@proodecs.com
 URL:proodecs.com
 

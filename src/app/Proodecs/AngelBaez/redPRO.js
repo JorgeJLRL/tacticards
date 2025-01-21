@@ -6,12 +6,12 @@ export default function Red() {
   const styleFlex =
     "flex-1 items-center justify-center flex flex-col text-center flex-wrap w-[10]";
   const persona = {
-    whatsappurl: "https://wa.me/6442617543",
+    whatsappurl: "https://wa.me/526442617543",
     facebookurl:
       "https://www.facebook.com/Proodecs.organics/?locale=hi_IN&_rdr",
     instagramurl: "https://www.instagram.com/proodecs/",
     linkedin: "https://mx.linkedin.com/in/josé-ángel-báez-olivo-097081120",
-    telefono: "6442617543",
+    telefono: "526442617543",
     sitioweb: "https://proodecs.com/",
     email: "mailto:abaez@proodecs.com",
     dropbox:
