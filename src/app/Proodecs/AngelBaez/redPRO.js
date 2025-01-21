@@ -66,7 +66,7 @@ export default function Red() {
         </div>
         <div className={styleFlex}>
           <a href={persona.googleNegocio} target="_blank">
-            <img src="/images/íconoDropBox.png" className={style.imgRed} />
+            <img src="/images/iconoDropBox.png" className={style.imgRed} />
             <p>Dropbox</p>
           </a>
         </div>
