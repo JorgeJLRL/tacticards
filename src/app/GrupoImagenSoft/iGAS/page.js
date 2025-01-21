@@ -1,26 +1,26 @@
 import styles from "../../ui/RedUI.module.css";
 import ButtonTacticas from "../../ui/button/button.module.css";
-import Mensaje from "../../GrupoImagenSoft/iGAS/contactiGAS.client";
+import Mensaje from "./contactiGAS.client";
 import React from "react";
-import Red from "../../GrupoImagenSoft/iGAS/rediGas";
+import Red from "./rediGas";
 
 export default function User() {
-  const fotoperfil = "/images/perfilOculto.png";
+  const fotoperfil = "/images/igasLogo.jpg";
   const name = "iGAS";
-  const puesto = "Asesor Comercial";
-  const empresa = "Ubisat";
-  const whatsapp = "6681550789";
-  const correo = "sergiodominguez@ubisat.com.mx";
-  const sitioweb = "ubisat.mx";
-  const ubicacion = "Vicente Guerrero #1089, Jiquilpan, Los Mochis, Sin.";
-  const telefonofijo = "6688162165";
-  const namecontact = "Sergio%Dominguez";
+  const puesto = "";
+  const empresa = "";
+  const whatsapp = "6683962107";
+  const correo = "ventas@igas.com.mx";
+  const sitioweb = "igas.mx";
+  const ubicacion = "C. Libertad 479, Jiquilpan, 81229 Los Mochis, Sin.";
+  const telefonofijo = "6688162160";
+  const namecontact = "iGAS%";
 
   return (
     <div className={styles.imagebg}>
       <div className={styles.imageBoxBackground}>
         <img
-          src={"/images/PortadaImagenSoft.png"}
+          src={"/images/portadaIgas.jpg"}
           className={styles.imageBackground}
         />
       </div>
@@ -43,7 +43,7 @@ export default function User() {
               href={`tel:+${whatsapp}
                     &amp;name=${namecontact}`}
             >
-              (668) 155 0789
+              (668) 396 2107
             </a>
           </li>
 
@@ -70,7 +70,7 @@ export default function User() {
               src="/images/telefonofijo.png"
             />
             <a className={styles.anchorText} href={`tel:+${telefonofijo}`}>
-              (668) 816 2165
+              (668) 816 2160
             </a>
           </li>
         </ul>

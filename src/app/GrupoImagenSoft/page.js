@@ -5,7 +5,7 @@ export default function GrupoImagenSoft() {
       <div className={styles.ImageBoxFlex}>
         <div className={styles.imageBox3}>
           <img
-            className={styles.imgResponsive}
+            className={styles.imgResponsive1}
             src="/images/trackitagro-logo.png"
           ></img>
           <button className={styles.btnVerInfo}>

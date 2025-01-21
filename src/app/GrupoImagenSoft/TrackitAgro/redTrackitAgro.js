@@ -7,13 +7,14 @@ export default function Red() {
     "flex-1 items-center justify-center flex flex-col text-center flex-wrap w-[10]";
   const persona = {
     whatsappurl: "https://wa.me/6681550789",
-    facebookurl: "https://www.facebook.com/ubisatmx",
-    instagramurl: "https://www.instagram.com/ubisatmx/",
+    facebookurl: "https://www.facebook.com/trackitagromx",
+    instagramurl: "https://www.instagram.com/trackitagromx",
     ubicacion: "https://maps.app.goo.gl/SSVwfgNjqp3jhusa7",
-    telefono: "6688162165",
-    sitioweb: "https://ubisat.mx/",
-    email: "mailto:sergiodominguez@ubisat.com.mx",
-    googleNegocio: "https://g.page/r/CSAvTAnktOLbEB0/review",
+    telefono: "6688162171",
+    sitioweb: "https://trackitagro.mx/",
+    email: "mailto:ventas@trackitagro.mx",
+    googleNegocio: "", //falta esta seccion
+    tiktok: "https://www.tiktok.com/@trackitagromx",
   };
 
   return (
@@ -72,7 +73,10 @@ export default function Red() {
           </a>
         </div>
         <div className={styleFlex}>
-          <p href={persona.googleNegocio} target="_blank"></p>
+          <a href={persona.tiktok} target="_blank">
+            <img src="/images/logoTikTok.png" className={style.imgRed} />
+            <p>TikTok</p>
+          </a>
         </div>
       </div>
     </div>

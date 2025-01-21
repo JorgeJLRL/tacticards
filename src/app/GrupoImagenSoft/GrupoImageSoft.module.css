@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 500px;
 }
 .imageBox1{
     position: relative;
@@ -32,18 +33,19 @@
 }
 .imageBox3{
     position: relative;
-    width: 30vw;
+    width: auto;
     height: 20vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
     margin: 10px 0;
+    
 }
 .imgResponsive{
     position: relative;
     width: auto;
-    height: 20vh;
+    height: 25vh;
    
 }
 .btnVerInfo{
@@ -55,20 +57,46 @@
     border-radius: 50px;
     font-weight: 600;
 }
+
 @media screen and (max-width: 450px) {
     .imgResponsive{
         position: relative;
         width: auto;
-        height: 10vh;
+        height: 15vh;
        
     }
+    .ImageBoxFlex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 250px;
+    }
+    .imageBox1{
+        position: relative;
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+    .imageBox2{
+        position: relative;
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+
     .imageBox3{
         position: relative;
         width: auto;
-        height: 20vh;
+        height: auto;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         flex-direction: column;
     }
 }

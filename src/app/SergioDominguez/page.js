@@ -37,7 +37,7 @@ export default function User() {
 
         <ul className={styles.unorderedList}>
           <li className={styles.listContact}>
-            <img className={styles.firstsection} src="/images/Telefonowa.png" />
+            <img className={styles.firstsection} src="/images/Telefonowa.svg" />
             <a
               className={styles.anchorText}
               href={`tel:+${whatsapp}

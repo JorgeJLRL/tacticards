@@ -1,26 +1,26 @@
 import styles from "../../ui/RedUI.module.css";
 import ButtonTacticas from "../../ui/button/button.module.css";
-import Mensaje from "../../GrupoImagenSoft/TrackitAgro/contactTrackitAgro.client";
+import Mensaje from "../../Proodecs/AngelBaez/contactPRO.client";
 import React from "react";
-import Red from "../../GrupoImagenSoft/TrackitAgro/redTrackitAgro";
+import Red from "./redPRO";
 
 export default function User() {
-  const fotoperfil = "/images/trackitLogo.jpg";
-  const name = "TrackitAgro México";
-  const puesto = "";
-  const empresa = "";
-  const whatsapp = "6681550789";
-  const correo = "ventas@trackitagro.mx";
-  const sitioweb = "trackitagro.mx";
-  const ubicacion = "Vicente Guerrero #1089, Jiquilpan, Los Mochis, Sin.";
-  const telefonofijo = "6688162171";
-  const namecontact = "TrackitAgro%";
+  const fotoperfil = "/images/Proodecs/PerfilAngelBaez.png";
+  const name = "José Ángel Báez Olivo";
+  const puesto = "Gerente";
+  const empresa = "PROODECS";
+  const whatsapp = "6442617543";
+  const correo = "abaez@proodecs.com";
+  const sitioweb = "proodecs.com";
+  const ubicacion = "Los Mochis, Sinaloa ";
+  const telefonofijo = "6688126450";
+  const namecontact = "JoseAngel%BaezOlivo";
 
   return (
     <div className={styles.imagebg}>
       <div className={styles.imageBoxBackground}>
         <img
-          src={"/images/portadaTrackit.jpg"}
+          src={"/images/Proodecs/PortadatarjetavirtualProodecs.png"}
           className={styles.imageBackground}
         />
       </div>
@@ -37,13 +37,13 @@ export default function User() {
 
         <ul className={styles.unorderedList}>
           <li className={styles.listContact}>
-            <img className={styles.firstsection} src="/images/Telefonowa.png" />
+            <img className={styles.firstsection} src="/images/Telefonowa.svg" />
             <a
               className={styles.anchorText}
               href={`tel:+${whatsapp}
                     &amp;name=${namecontact}`}
             >
-              (668) 155 0789
+              (644) 261 7543
             </a>
           </li>
 
@@ -70,7 +70,7 @@ export default function User() {
               src="/images/telefonofijo.png"
             />
             <a className={styles.anchorText} href={`tel:+${telefonofijo}`}>
-              (668) 816 21 71
+              (668) 812 6450
             </a>
           </li>
         </ul>

@@ -5,22 +5,22 @@ import React from "react";
 import Red from "../../GrupoImagenSoft/Ubisat/redUbisat";
 
 export default function User() {
-  const fotoperfil = "/images/perfilOculto.png";
-  const name = "Ubisat";
-  const puesto = "Asesor Comercial";
-  const empresa = "Ubisat";
-  const whatsapp = "6681550789";
-  const correo = "sergiodominguez@ubisat.com.mx";
+  const fotoperfil = "/images/ubisatLogo.jpg";
+  const name = "UBISAT";
+  const puesto = "";
+  const empresa = "";
+  const whatsapp = "6682173047";
+  const correo = "ventas@ubisat.com.mx";
   const sitioweb = "ubisat.mx";
   const ubicacion = "Vicente Guerrero #1089, Jiquilpan, Los Mochis, Sin.";
   const telefonofijo = "6688162165";
-  const namecontact = "Sergio%Dominguez";
+  const namecontact = "UBISAT";
 
   return (
     <div className={styles.imagebg}>
       <div className={styles.imageBoxBackground}>
         <img
-          src={"/images/PortadaImagenSoft.png"}
+          src={"/images/portadaUbisat.jpg"}
           className={styles.imageBackground}
         />
       </div>
@@ -43,7 +43,7 @@ export default function User() {
               href={`tel:+${whatsapp}
                     &amp;name=${namecontact}`}
             >
-              (668) 155 0789
+              (668) 217 3047
             </a>
           </li>
 

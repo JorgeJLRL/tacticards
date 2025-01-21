@@ -5,9 +5,9 @@ const Mensaje = () => {
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:Sergio Dominguez
-TEL;TYPE=WORK,VOICE:6688162165
-EMAIL:sergiodominguez@ubisat.com.mx
+FN:UBISAT
+TEL;TYPE=WORK,VOICE:6682173047
+EMAIL:ventas@ubisat.com.mx
 URL:https://ubisat.mx/
 
 END:VCARD`;
@@ -18,7 +18,7 @@ END:VCARD`;
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "Sergio-Dominguez.vcf");
+      link.setAttribute("download", "UBISAT.vcf");
       link.style.display = "none";
       document.body.appendChild(link);
       link.click();

@@ -5,10 +5,11 @@ const Mensaje = () => {
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:iGAS
-TEL;TYPE=WORK,VOICE:6688162160
-EMAIL:ventas@igas.com.mx
-URL:igas.mx
+FN:JOSE ANGEL BAEZ OLIVO
+TEL;TYPE=WORK,VOICE:6442617543
+EMAIL:abaez@proodecs.com
+URL:proodecs.com
+
 END:VCARD`;
 
     try {
@@ -17,7 +18,7 @@ END:VCARD`;
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "iGAS.vcf");
+      link.setAttribute("download", "JOSE-BAEZ.vcf");
       link.style.display = "none";
       document.body.appendChild(link);
       link.click();

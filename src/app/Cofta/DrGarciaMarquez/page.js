@@ -13,7 +13,7 @@ export default function User() {
   const correo = "oftalmologia@cofta.mx";
   const sitioweb = "https://cofta.mx/";
   const ubicacion = "Av. Gabriel Leyva #198 Sur, Col. Centro, Los Mochis, Sin.";
-  const telefonofijo = "6688155308";
+  const telefonofijo = "6688185308";
   const namecontact = "Jose%Garcia";
 
   return (
@@ -70,7 +70,7 @@ export default function User() {
               src="/images/telefonofijo.png"
             />
             <a className={styles.anchorText} href={`tel:+${telefonofijo}`}>
-              (668) 815 5308
+              (668) 818 5308
             </a>
           </li>
         </ul>

@@ -6,15 +6,16 @@ export default function Red() {
   const styleFlex =
     "flex-1 items-center justify-center flex flex-col text-center flex-wrap w-[10]";
   const persona = {
-    whatsappurl: "https://wa.me/6682173047",
-    facebookurl: "https://www.facebook.com/ubisatmx",
-    instagramurl: "https://www.instagram.com/ubisatmx/",
-    ubicacion: "https://maps.app.goo.gl/SSVwfgNjqp3jhusa7",
-    telefono: "6688162165",
-    sitioweb: "https://ubisat.mx/",
-    email: "mailto:ventas@ubisat.com.mx",
-    googleNegocio: "https://g.page/r/CSAvTAnktOLbEB0/review",
-    tiktok: "https://www.tiktok.com/@ubisatmx",
+    whatsappurl: "https://wa.me/6442617543",
+    facebookurl:
+      "https://www.facebook.com/Proodecs.organics/?locale=hi_IN&_rdr",
+    instagramurl: "https://www.instagram.com/proodecs/",
+    linkedin: "https://mx.linkedin.com/in/josé-ángel-báez-olivo-097081120",
+    telefono: "6442617543",
+    sitioweb: "proodecs.com",
+    email: "mailto:abaez@proodecs.com",
+    dropbox:
+      "https://www.dropbox.com/scl/fo/0w39vhj4ik9o9mvt0a7jg/ADro7G2LL1KUbQQfu8RyYjg?rlkey=b1cq3vquidjmwi639lj12zht3&st=7pov34we&dl=0",
   };
 
   return (
@@ -36,10 +37,10 @@ export default function Red() {
 
       <div className={style.boxflex}>
         <div className={styleFlex}>
-          <a href={persona.ubicacion} target="_blank">
+          <a href={persona.linkedin} target="_blank">
             {" "}
-            <img src="/images/iconodeubicacion.png" className={style.imgRed} />
-            <p>Ubicacion</p>
+            <img src="/images/LogoLinkedln.png" className={style.imgRed} />
+            <p>Linkedin</p>
           </a>
         </div>
         <div className={styleFlex}>
@@ -65,18 +66,12 @@ export default function Red() {
         </div>
         <div className={styleFlex}>
           <a href={persona.googleNegocio} target="_blank">
-            <img
-              src="/images/logoGoogleMiNegocio.png"
-              className={style.imgRed}
-            />
-            <p>Mi Negocio</p>
+            <img src="/images/íconoDropBox.png" className={style.imgRed} />
+            <p>Dropbox</p>
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={persona.tiktok} target="_blank">
-            <img src="/images/logoTikTok.png" className={style.imgRed} />
-            <p>TikTok</p>
-          </a>
+          <p href={persona.dropbox} target="_blank"></p>
         </div>
       </div>
     </div>
