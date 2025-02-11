@@ -13,12 +13,19 @@ export default function RootLayout({ children }) {
   //layout todo el contorno de nuestra pagina
 
   return (
-    <html>
+    <html lang="es">
       <body>
-        <Menu />
-        {children}
-
-        <Footer></Footer>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+          }}
+        >
+          <Menu />
+          <div style={{ flex: 1 }}>{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

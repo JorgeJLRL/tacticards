@@ -5,7 +5,30 @@
 input::placeholder{
     color: black;
 }
+@font-face {
+    font-family: "CenturyGothic" ;
+    src: url("/fonts/CenturyGothic.ttf");
+   
+}
+@font-face {
+    font-family: "Nexa";
+    src: url("/fonts/NexaExtraLight.ttf");
+}
 
+@font-face {
+    font-family: "Cocogoose";
+    src: url("/fonts/CocogooseProRegulartrial.ttf");
+}
+@font-face {
+    font-family: "Georama";
+    src: url("/fonts/Georama.ttf");
+}
+ul{
+    list-style-type: disc;
+}
+body{
+    height: auto;
+}
 .HomeText{
     text-align: center;
 }

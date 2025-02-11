@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      rotate: {
+        17: "17deg",
+      },
+      fontFamily: {
+        CenturyGothic: ["CenturyGothic"],
+        NexaThin: ["Nexa"],
+        Cocogoose: ["Cocogoose"],
+        Georama: ["Georama"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

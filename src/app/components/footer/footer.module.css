@@ -2,9 +2,10 @@
     position: relative;
     background-color: rgb(15, 0, 80);
     color: white;
-    
     padding: 10px;
     width: 100%;
+    /* Esta propiedad ayuda a mantenerlo al final */
+    margin-top: auto; /* Esto empuja el footer al final */
 }
 .Content{
     display: flex;

@@ -9,7 +9,7 @@ export default function GrupoImagenSoft() {
             src="/images/trackitagro-logo.png"
           ></img>
           <button className={styles.btnVerInfo}>
-            <a href="https://www.tacticards.com.mx/GrupoImagenSoft/TrackitAgro/">
+            <a href="https://www.tacticards.com.mx/GrupoImagenSoft/Ubisat/">
               Ver Información
             </a>
           </button>
