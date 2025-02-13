@@ -5,7 +5,7 @@ export default function TarjetasInteligentes() {
   return (
     <div className="bannertarjetas w-full max-h-[800px] px-20 ">
       <div className="flex h-full md:flex-row items-center justify-center relative flex-col-reverse">
-        <div className="md:mr-3 mr-0   flex md:flex-1 flex-col justify-center  md:text-left text-center">
+        <div className="md:mr-3 mr-0 flex md:flex-1 flex-col justify-center  md:text-left text-center">
           <p className="font-NexaThin my-6  text-3xl">
             La mejor primera impresion
           </p>
