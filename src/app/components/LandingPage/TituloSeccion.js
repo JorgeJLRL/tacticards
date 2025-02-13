@@ -1,5 +1,7 @@
 export default function TituloSeccion({ text }) {
   return (
-    <h2 className="h-10 font-CenturyGothic text-3xl text-center ">{text}</h2>
+    <h2 className="h-auto font-bold font-CenturyGothic text-5xl text-left ">
+      {text}
+    </h2>
   );
 }
