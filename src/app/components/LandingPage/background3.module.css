@@ -1,0 +1,48 @@
+.background3 {
+  width: 100%;
+  padding: 110px;
+  height: 100%;
+  background: url("/images/landingPage/TarjetasDigitales.webp") fixed center;
+  background-size: 120% 100%;  /* Asegura que la imagen cubra todo el área */
+  background-position: center;
+  background-repeat: repeat;
+}
+
+@media only screen and (max-width:1000px){
+  .background3 {
+    width: 100%;
+    padding: 110px;
+    height: 100%;
+    background: url("/images/landingPage/TarjetasDigitales.webp") fixed center;
+    background-size: 120% 100%;  /* Asegura que la imagen cubra todo el área */
+    background-position: center;
+    background-repeat: repeat;
+  }
+  
+}
+
+@media only screen and (max-width:768px){
+  .background3 {
+    width: 100%;
+    padding: 120px;
+    height: 100%;
+    background: url("/images/landingPage/TarjetasDigitales.webp") fixed center;
+    background-size: 120% 110%;  /* Asegura que la imagen cubra todo el área */
+    background-position: center;
+    background-repeat: repeat;
+  }
+  
+}
+@media only screen and (max-width:640px){
+  .background3 {
+    width: 100%;
+    padding: 120px;
+    height: 100%;
+    background: url("/images/landingPage/TarjetasDigitales.webp") ;
+    background-size: 120% 110%;  /* Asegura que la imagen cubra todo el área */
+    background-position: center;
+    background-repeat: repeat;
+  }
+  
+}
+

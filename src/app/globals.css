@@ -55,18 +55,14 @@ p{
     font-size: .9rem;
     font-size: small;
 }
-
-.HeaderBox{
-    z-index: 1;
-    position: relative;
-    background-color: white;
-    width: 100%;
-    height: auto;
+.menuButton{
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    margin: 10px 0;
+    justify-content: space-around;
+    height: auto;
+    padding: 10px 0;
 }
+
 .menuButton svg{
     height: auto;
     width: 30px;
@@ -83,11 +79,13 @@ p{
     position: absolute;
     width: 100%;
     left: 0;
-    top: 65px;
+    top: 70px;
+    z-index: 1;
 }
 .textMenu{
    
     text-align: center;
+    padding: 5px 0;
 }
 
 @media screen and(max-width:450px) {

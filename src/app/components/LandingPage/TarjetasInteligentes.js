@@ -3,7 +3,7 @@ import React from "react";
 
 export default function TarjetasInteligentes() {
   return (
-    <div className="bannertarjetas w-full max-h-[800px] px-20 ">
+    <div className="bannertarjetas w-full max-h-full md:p-10 p-5">
       <div className="flex h-full md:flex-row items-center justify-center relative flex-col-reverse">
         <div className="md:mr-3 mr-0 flex md:flex-1 flex-col justify-center  md:text-left text-center">
           <p className="font-NexaThin my-6  text-3xl">
@@ -16,16 +16,16 @@ export default function TarjetasInteligentes() {
             La nueva generación en tarjetas de presentación y gafetes
           </p>
         </div>
-        <div className="overflow-hidden md:overflow-visible md:flex-1 ">
+        <div className=" md:overflow-visible md:flex-1 ">
           <div className=" flex justify-center md:min-w-[50%]  min-w-[100%] ">
-            <div className="h-[250px] md:h-[450px] w-[60%] md:w-[70%] relative flex justify-center items-center">
+            <div className="h-[150px] md:h-[450px] w-[60%] md:left-0 left-3 md:w-[70%] relative flex justify-center items-center">
               <img
                 className="h-full w-full -rotate-17 object-contain relative top-[140px]"
                 src="/images/landingPage/GafetEmpresarial.webp"
                 alt="Gafete Empresarial"
               />
             </div>
-            <div className="h-[450px] md:h-[650px] w-[65%] md:w-[70%] md:right-[16%] relative flex justify-center items-center">
+            <div className="h-[350px] md:h-[650px] w-[65%] md:w-[70%] md:right-[17%] right-3  relative flex justify-center items-center">
               <img
                 className="h-full w-full -rotate-17 object-contain"
                 src="/images/landingPage/TarjetaPresentacionDigital.webp"

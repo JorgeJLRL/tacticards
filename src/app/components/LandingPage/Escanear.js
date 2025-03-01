@@ -1,37 +1,102 @@
+"use client";
 import TituloSeccion from "./TituloSeccion";
+import React from "react";
+import { useState, useEffect } from "react";
 export default function Escanear() {
+  const [isWide, setIsWide] = useState(false);
+  useEffect(() => {
+    // Solo ejecutamos el código cuando el componente se monta en el cliente
+    if (typeof window !== "undefined") {
+      // Establece el valor inicial de isWide según el tamaño de la ventana
+      setIsWide(window.innerWidth > 766);
+
+      // Función para manejar el cambio de tamaño de la ventana
+      const handleResize = () => {
+        setIsWide(window.innerWidth > 766);
+      };
+
+      // Añadir el event listener para el cambio de tamaño
+      window.addEventListener("resize", handleResize);
+
+      // Limpiar el event listener cuando el componente se desmonte
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
   return (
-    <div className="">
-      <div className="w-full h-full flex-col relative flex justify-center  ">
-        <div className="w-full flex flex-col justify-center items-center my-0 mx-auto">
-          <TituloSeccion text="¿Cómo escanear mi TáctiCard?"></TituloSeccion>
-          <div className="flex flex-row-reverse h-auto w-[1200px]">
-            <div className="flex-col flex align-middle justify-center">
-              <p className="text-xl">
-                Tu TáctiCard puede escanearse con un smartphone de dos maneras:
-              </p>
-              <br />
-              <ul>
-                <li>
-                  <b>Proximidad</b>: Con la tecnología NFC, al acercar la
-                  tarjeta/gafet al smartphone, se abrirá la tarjeta virtual.
-                </li>
-                <li>
-                  <b>Código QR</b>: Tu Tácticard puede tener impreso un código
-                  QR que dirija a tus clientes a tu tarjeta virtual.
-                </li>
-              </ul>
-            </div>
-            <div>
-              <img
-                src="/images/landingPage/GafetEmpresarialInteligente.webp"
-                alt="Celular con tarjeta"
-                className="h-[400px] w-[500px]"
-              />
+    <div className="w-full my-10">
+      {isWide && (
+        <div className="w-full h-full flex flex-col relative justify-center">
+          <div className="w-full flex flex-col justify-center items-center mx-auto">
+            <div
+              className="w-full px-3 md:px-16 sm:px-16 xl:px-16 2xl:px-16 lg:px-3 flex flex-col-reverse md:flex-row items-center justify-center my-0 mx-auto
+"
+            >
+              <div className="flex flex-col justify-start  md:mx-16 mx-2 items-start md:text-left text-justify">
+                <TituloSeccion text="¿Cómo escanear mi TáctiCard?" />
+                <p className="text-2xl md:text-2xl my-3 ">
+                  Tu TáctiCard puede escanearse con un smartphone de dos
+                  maneras:
+                </p>
+                <ul className="w-full list-inside md:my-2 my-3 text-2xl md:text-2xl">
+                  <li>
+                    <b>Proximidad:</b> Con la tecnología NFC, al acercar la
+                    tarjeta/gafet al smartphone, se abrirá la tarjeta virtual.
+                  </li>
+                  <li className="my-10">
+                    <b>Código QR:</b> Tu TáctiCard puede tener impreso un código
+                    QR que dirija a tus clientes a tu tarjeta virtual.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="max-w-[400px] md:max-w-[500px]">
+                <img
+                  src="/images/landingPage/GafetEmpresarialInteligente.webp"
+                  alt="Celular con tarjeta"
+                  className="w-full h-auto md:h-full"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
+      {!isWide && (
+        <div className="w-full h-full flex flex-col relative justify-center">
+          <div className="w-full flex flex-col justify-center items-center mx-auto">
+            <div
+              className="w-full px-3 md:px-16 sm:px-16 xl:px-16 2xl:px-16 lg:px-3 flex flex-col-reverse md:flex-row items-center justify-center my-0 mx-auto
+"
+            >
+              <div className="flex flex-col justify-start items-center  md:mx-16 mx-2 items-start md:text-left text-justify">
+                <TituloSeccion text="¿Cómo escanear mi TáctiCard?" />
+                <div className="max-w-[400px] md:max-w-[500px]">
+                  <img
+                    src="/images/landingPage/GafetEmpresarialInteligente.webp"
+                    alt="Celular con tarjeta"
+                    className="w-full h-auto md:h-full"
+                  />
+                </div>
+                <p className="text-2xl md:text-2xl my-3 ">
+                  Tu TáctiCard puede escanearse con un smartphone de dos
+                  maneras:
+                </p>
+                <ul className="w-full list-inside md:my-2 my-3 text-2xl md:text-2xl">
+                  <li>
+                    <b>Proximidad:</b> Con la tecnología NFC, al acercar la
+                    tarjeta/gafet al smartphone, se abrirá la tarjeta virtual.
+                  </li>
+                  <li className="my-10">
+                    <b>Código QR:</b> Tu TáctiCard puede tener impreso un código
+                    QR que dirija a tus clientes a tu tarjeta virtual.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
