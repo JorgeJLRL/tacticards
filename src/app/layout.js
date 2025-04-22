@@ -4,7 +4,7 @@ import Footer from "../app/components/footer/footer";
 
 import Menu from "../app/menu";
 export const metadata = {
-  title: "Tacticards",
+  title: "TáctiCards",
   description:
     "Impresiona a tus clientes potenciales con la nueva era en tarjetas de presentacion",
 };

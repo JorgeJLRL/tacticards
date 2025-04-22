@@ -36,7 +36,7 @@ function Contactanos() {
         <h2 className="font-Cocogoose my-10 text-5xl h-auto">
           ¡Haz tu pedido!
         </h2>
-        <p className="text-xl">
+        <p className="text-xl sm:px-[100px] md:px-[100px] lg:px-[100px] xl:px-[100px] 2xl:px-[300px]   px-[0px] text-center">
           Envía tus datos y nos pondremos en contacto contigo para hacer las
           TáctiCards que requieras y enviarlas a tu ubicación.
         </p>
