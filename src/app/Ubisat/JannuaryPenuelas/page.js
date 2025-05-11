@@ -7,7 +7,7 @@ import Red from "../JannuaryPenuelas/red.js";
 export default function User() {
   const fotoperfil = "/images/ubisat/Jannuary.webp";
   const fotoFondo = "/images/ubisat/Portada-Ubisat.webp";
-  const name = "M.C. Jannuary Peñuelas Rivas";
+  const name = "M. C. Jannuary Peñuelas Rivas";
   const puesto = "Gerente Comercial";
   const empresa = "UBISAT";
   const whatsapp = "6681130120";

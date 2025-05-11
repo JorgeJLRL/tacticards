@@ -7,7 +7,7 @@ import Red from "../JorgeAlbertoOrduno/red";
 export default function User() {
   const fotoperfil = "/images/igas/Jorge-Alberto.webp";
   const fotoFondo = "/images/ubisat/Portada-Ubisat.webp";
-  const name = "M.F. Jorge Alberto Orduño Ahumada";
+  const name = "M. F. Jorge Alberto Orduño Ahumada";
   const puesto = "Director Operativo Accesorios";
   const empresa = "UBISAT";
   const whatsapp = "6682173047";

@@ -6,7 +6,7 @@ const Mensaje = () => {
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:M.F. Jorge Alberto Orduño Ahumada
+FN:M. F. Jorge Alberto Orduño Ahumada
 TEL;TYPE=WORK,VOICE:6682173047
 EMAIL:jaorduno@ubisat.com.mx
 
