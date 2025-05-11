@@ -2,9 +2,6 @@
 
 import Styles from "../../ui/button/button.module.css";
 
-
-
-
 const Mensaje = () => {
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD

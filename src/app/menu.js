@@ -45,7 +45,7 @@ export default function Menu() {
               alt="Logo"
             />
           </div>
-          <div className="flex flex-[2] justify-center items-center">
+          <div className="flex flex-[2] justify-center items-centerjj">
             <ul className="flex list-none font-CenturyGothic font-normal">
               <Link href="/">
                 {" "}
