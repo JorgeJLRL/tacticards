@@ -7,7 +7,7 @@ import Red from "../JorgeAlbertoOrduno/red";
 export default function User() {
   const fotoperfil = "/images/igas/Jorge-Alberto.webp";
   const fotoFondo = "/images/igas/Portada-iGAS-1_Mesa-de-trabajo-1-01.webp";
-  const name = "M.F. Jorge Alberto Orduño Ahumada";
+  const name = "M. F. Jorge Alberto Orduño Ahumada";
   const puesto = "Director Operativo Accesorios";
   const empresa = "iGAS";
   const whatsapp = "6682173047";

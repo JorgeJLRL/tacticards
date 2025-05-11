@@ -7,7 +7,7 @@ import Red from "../JannuaryPenuelas/red.js";
 export default function User() {
   const fotoperfil = "/images/igas/Jannuary.webp";
   const fotoFondo = "/images/igas/Portada-iGAS-1_Mesa-de-trabajo-1-01.webp";
-  const name = "M.C. Jannuary Peñuelas Rivas";
+  const name = "M. C. Jannuary Peñuelas Rivas";
   const puesto = "Gerente Comercial";
   const empresa = "iGAS";
   const whatsapp = "6681130120";

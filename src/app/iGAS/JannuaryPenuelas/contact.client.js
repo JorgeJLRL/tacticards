@@ -6,7 +6,7 @@ const Mensaje = () => {
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:M.C. Jannuary Peñuelas Rivas
+FN:M. C. Jannuary Peñuelas Rivas
 TEL;TYPE=WORK,VOICE:6681130120
 EMAIL:jpenuelas@igas.com.mx
 
