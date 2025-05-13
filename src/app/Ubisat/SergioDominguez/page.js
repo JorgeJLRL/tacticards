@@ -5,7 +5,7 @@ import React from "react";
 import Red from "../SergioDominguez/red.js";
 
 export default function User() {
-  const fotoperfil = "/images/igas/Foto-Sergio-Domínguez.webp";
+  const fotoperfil = "/images/igas/Foto-Sergio-Dominguez.webp";
   const fotoFondo = "/images/ubisat/Portada-Ubisat.webp";
   const name = "Ing. Sergio Dominguez";
   const puesto = "Asesor Comercial";
