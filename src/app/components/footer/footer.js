@@ -41,28 +41,36 @@ export default function Footer() {
               <p className="text-lg py-2 align-center ">¡Siguenos!</p>
               <div className="flex justify-end items-end">
                 <div className="w-12 h-auto mx-1">
-                  <img
-                    className="w-full h-full"
-                    src="/images/landingPage/facebook.svg"
-                  ></img>
+                  <a href="https://www.facebook.com/TactiCardsMX" Target="_blank">
+                    <img
+                      className="w-full h-full "
+                      src="/images/landingPage/facebook.svg"
+                    ></img>
+                  </a>
                 </div>
                 <div className="w-12 h-auto mx-1">
-                  <img
-                    className="w-full h-full"
-                    src="/images/landingPage/instagram.svg"
-                  ></img>
+                  <a href="https://www.instagram.com/tacticards.25/" Target="_blank">
+                    <img
+                      className="w-full h-full"
+                      src="/images/landingPage/instagram.svg"
+                    ></img>
+                  </a>
                 </div>
                 <div className="w-12 h-auto mx-1">
-                  <img
-                    className="w-full h-full"
-                    src="/images/landingPage/X.svg"
-                  ></img>
+                  <a href="https://x.com/TactiCardsMX" Target="_blank">
+                    <img
+                      className="w-full h-full"
+                      src="/images/landingPage/X.svg"
+                    ></img>
+                  </a>
                 </div>
                 <div className="w-12 h-auto mx-1">
-                  <img
-                    className="w-full h-full"
-                    src="/images/landingPage/linkedin.svg"
-                  ></img>
+                  <a href="https://www.linkedin.com/company/106918067/admin/dashboard/" Target="_blank">
+                    <img
+                      className="w-full h-full"
+                      src="/images/landingPage/linkedin.svg"
+                    ></img>
+                  </a>
                 </div>
               </div>
             </div>

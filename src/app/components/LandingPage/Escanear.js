@@ -2,7 +2,15 @@
 import TituloSeccion from "./TituloSeccion";
 import React from "react";
 import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 export default function Escanear() {
+  
+  const { ref: EscanearRef, inView: EscanearinView } = useInView({
+    threshold: 0.25,
+    triggerOnce: false, // Usa false si quieres que cambie al entrar/salir del viewport
+  });
+  const opacityDiv = EscanearinView ? "opacity-100" : "opacity-0";
+
   const [isWide, setIsWide] = useState(false);
   useEffect(() => {
     // Solo ejecutamos el código cuando el componente se monta en el cliente
@@ -24,10 +32,13 @@ export default function Escanear() {
       };
     }
   }, []);
+
+
   return (
     <div className="w-full my-10">
-      {isWide && (
-        <div className="w-full h-full flex flex-col relative justify-center">
+      {isWide ?(
+        <div ref={EscanearRef}
+        className={`w-full h-full flex flex-col relative justify-center transition-opacity duration-500 ${opacityDiv}`}>
           <div className="w-full flex flex-col justify-center items-center mx-auto">
             <div
               className="w-full px-3 md:px-16 sm:px-16 xl:px-16 2xl:px-16 lg:px-3 flex flex-col-reverse md:flex-row items-center justify-center my-0 mx-auto
@@ -53,6 +64,7 @@ export default function Escanear() {
 
               <div className="max-w-[400px] md:max-w-[500px]">
                 <img
+                loading="lazy"
                   src="/images/landingPage/GafetEmpresarialInteligente.webp"
                   alt="Celular con tarjeta"
                   className="w-full h-auto md:h-full"
@@ -61,9 +73,10 @@ export default function Escanear() {
             </div>
           </div>
         </div>
-      )}
-      {!isWide && (
-        <div className="w-full h-full flex flex-col relative justify-center">
+      ) : (
+        <div 
+        ref={EscanearRef}
+        className={`w-full h-full flex flex-col relative justify-center transition-opacity duration-500 ${opacityDiv} `}>
           <div className="w-full flex flex-col justify-center items-center mx-auto">
             <div
               className="w-full px-3 md:px-16 sm:px-16 xl:px-16 2xl:px-16 lg:px-3 flex flex-col-reverse md:flex-row items-center justify-center my-0 mx-auto
@@ -73,6 +86,7 @@ export default function Escanear() {
                 <TituloSeccion text="¿Cómo escanear mi TáctiCard?" />
                 <div className="max-w-[400px] md:max-w-[500px]">
                   <img
+                  loading="lazy"
                     src="/images/landingPage/GafetEmpresarialInteligente.webp"
                     alt="Celular con tarjeta"
                     className="w-full h-auto md:h-full"
