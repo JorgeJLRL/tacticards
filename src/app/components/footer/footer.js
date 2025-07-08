@@ -1,11 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
   // Inicializa isWide en `false` o un valor predeterminado
   const [isWide, setIsWide] = useState(false);
+  const isDashboardPage = pathname.includes('/dashboard');
 
   useEffect(() => {
+    
     // Solo ejecutamos este código cuando el componente se monta en el cliente
     if (typeof window !== "undefined") {
       // Establece el valor inicial de isWide
@@ -26,8 +30,10 @@ export default function Footer() {
     }
   }, []); // Solo ejecutamos este efecto una vez al montar el componente
 
+  const divClasses = isDashboardPage ? "hidden" : "bg-[#08a6b2] text-white font-Georama w-full flex justify-center flex-col items-center md:py-10 py-2";
+
   return (
-    <div className="bg-[#08a6b2] text-white font-Georama w-full flex justify-center flex-col items-center md:py-10 py-2">
+    <div className={divClasses}>
       {isWide && (
         <div className="min-w-[70%] flex">
           <div className="flex flex-col flex-1 justify-center items-end">

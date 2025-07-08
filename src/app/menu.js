@@ -3,8 +3,10 @@ import { IoMenuOutline } from "react-icons/io5";
 import React, { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 export default function Menu() {
+  const pathname = usePathname();
   const [isWide, setIsWide] = useState(false);
   const [value, setValue] = useState(true);
 
@@ -28,6 +30,10 @@ export default function Menu() {
       };
     }
   }, []);
+
+  if (pathname.includes('/dashboard')) {
+    return null; // don't render the menu if the URL includes /dashboard
+  }
 
   function toggleState() {
     setValue(!value);
