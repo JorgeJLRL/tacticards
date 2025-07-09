@@ -18,9 +18,9 @@ export default function EmptyRed({ card }) {
 
   if (card.telefonoMovil) {
     socialLinks.push({
-      href: `https://wa.me/${card.telefonoMovil.replace(/[^0-9]/g, '')}`,
+      href: `https://wa.me/${card.telefonoMovil.replace(/[^0-9]/g, "")}`,
       icon: "/images/whatsapp.png",
-      label: "Whatsapp"
+      label: "Whatsapp",
     });
   }
 
@@ -29,7 +29,7 @@ export default function EmptyRed({ card }) {
       href: card.facebook,
       icon: "/images/facebook.png",
       label: "Facebook",
-      target: "_blank"
+      target: "_blank",
     });
   }
 
@@ -38,7 +38,7 @@ export default function EmptyRed({ card }) {
       href: card.instagram,
       icon: "/images/instagram.png",
       label: "Instagram",
-      target: "_blank"
+      target: "_blank",
     });
   }
 
@@ -47,15 +47,15 @@ export default function EmptyRed({ card }) {
       href: card.linkedIn,
       icon: "/images/linkedin.png",
       label: "LinkedIn",
-      target: "_blank"
+      target: "_blank",
     });
   }
 
   if (card.whatsappBusiness) {
     socialLinks.push({
-      href: `https://wa.me/${card.whatsappBusiness.replace(/[^0-9]/g, '')}`,
+      href: `https://wa.me/${card.whatsappBusiness.replace(/[^0-9]/g, "")}`,
       icon: "/images/unnamed.png",
-      label: "WhatsApp Business"
+      label: "WhatsApp Business",
     });
   }
 
@@ -64,7 +64,7 @@ export default function EmptyRed({ card }) {
       href: card.sitioWeb,
       icon: "/images/iconodesitioweb.png",
       label: "Sitio Web",
-      target: "_blank"
+      target: "_blank",
     });
   }
 
@@ -72,9 +72,17 @@ export default function EmptyRed({ card }) {
     socialLinks.push({
       href: `mailto:${card.direccionCorreo}`,
       icon: "/images/iconodecorreo.png",
-      label: "E-mail"
+      label: "E-mail",
     });
   }
+
+  card.redes?.forEach((red) => {
+    socialLinks.push({
+      href: red.linkRed,
+      icon: red.iconoRed,
+      label: red.nombreRed,
+    });
+  });
 
   // Chunk the social links into groups of 3
   const rows = chunkArray(socialLinks, 3);
@@ -99,4 +107,4 @@ export default function EmptyRed({ card }) {
       ))}
     </div>
   );
-} 
+}
