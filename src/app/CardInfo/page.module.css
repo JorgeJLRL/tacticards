@@ -1,43 +1,71 @@
-
-
-.imageBoxBackground{
-    object-fit: contain;
-    background-color: ghostwhite;
-    max-height: auto;
-    max-width: 1200px;
-    min-width: 200px;
-    margin: 0 auto;
+.imageBoxBackground {
+  object-fit: contain;
+  background-color: ghostwhite;
+  max-height: auto;
+  max-width: 800px;
+  min-width: 200px;
+  height: 300px;
+  margin: 0 auto;
 }
-.imageBackground{
-    width: 100%;
-    height: 100%;
-  
+.imageBackground {
+  width: 100%;
+  height: 100%;
 }
-.imagebg{
-    
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    background-color: ghostwhite;
+.imagebg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background-color: ghostwhite;
 }
-.userImg{
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    position: relative;
-    margin: 0 auto;
-    bottom: 75px;
-    object-fit: cover;
-   
+.userImg {
+  border-radius: 50%;
+  height: 175px;
+  width: 175px;
+  bottom: 75px;
+  object-fit: cover;
+  margin-top: 1rem;
 }
 
-.contentBox{
-    position: relative;
-    bottom: 75px;
-    margin: 0 20px;
+.contentBox {
+  bottom: 75px;
+  margin: 0 20px;
 }
-.unorderedList{
-    max-width: 300px;
+.infoContact {
+  display: flex;
+  flex-direction: column;
+}
+.mainInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.guardarContacto {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.guardarContacto div {
+  width: fit-content;
+}
+.guardarContacto button {
+  width: fit-content;
+  padding-left: 55px;
+  padding-right: 55px;
+}
+.nombreCard h2 {
+  font-size: 1.5em;
+  font-weight: 800;
+}
+.nombreCard p {
+  font-size: 1.03em;
+  margin-bottom: 5px;
+}
+.unorderedList {
+  max-width: 300px;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -45,25 +73,81 @@
   margin: 0 auto;
   list-style: none;
   padding: 0;
-  
 }
-.listContact{
-    display: flex;
+.listContact {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 2px 0;
+}
+.anchorText {
+  padding: 0 10px;
+}
+
+@media (max-width: 450px) {
+  .userImg {
+    width: 180px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .guardarContacto {
+    flex-direction: column;
     align-items: center;
+    margin: 0 auto;
+    font-size: 0.9em;
+    flex: 1;
+  }
+  .guardarContacto div {
     width: 100%;
-    justify-content: flex-start;
-    padding: 5px 0;
-}
-.anchorText{
-    padding: 0 10px;
-}
+  }
+  .guardarContacto button {
+    width: 100% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-@media screen and(max-width:450px) {
-
-    .userImg{
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-    }
+  .imageBoxBackground {
+    height: 150px;
+  }
+  .mainInfoContainer {
+    gap: 0;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
+  .infoContact {
+    padding-top: 80px;
+  }
+  .nombreCard {
+    text-align: center;
+  }
+  .userImg {
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    object-fit: cover;
+    z-index: 10;
+  }
+  .userImgWrapper {
+    width: 100%;
+    position: relative;
+    height: 0;
+  }
+  .listContact img {
+    width: 31px !important;
+    height: 31px !important;
+  }
+  .nombreCard h2 {
+    font-size: 1.13em;
+    font-weight: 700;
+  }
+  .nombreCard p {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
 }
-

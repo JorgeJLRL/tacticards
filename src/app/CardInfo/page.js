@@ -35,48 +35,61 @@ export default function User() {
   return (
     <div className={styles.imagebg}>
       <div className={styles.imageBoxBackground}>
-        <img src={card.fotoPortada} className={styles.imageBackground} style={{ width: "1200px", height: "435px" }} />
+        <img src={card.fotoPortada} className={styles.imageBackground} />
       </div>
-      <img src={card.fotoPerfil} className={styles.userImg} />
 
       <div className={styles.contentBox}>
-        <div className="flex justify-normal items-center flex-col">
-          <h2>{card.nombreTarjeta}</h2>
-          <p>{card.puesto}</p>
+        <div className={styles.mainInfoContainer}>
+          {/* Foto perfil */}
+          <div className={styles.userImgWrapper}>
+            <img src={card.fotoPerfil} className={styles.userImg} />
+          </div>
+
+          {/* Nombre / Puesto */}
+          <div className={styles.infoContact}>
+            <div className={styles.nombreCard}>
+              <h2>{card.nombreTarjeta}</h2>
+              <p>{card.puesto}</p>
+            </div>
+
+            {/* Contacto */}
+            <ul className={styles.unorderedList}>
+              <li className={styles.listContact}>
+                <img src="/images/iconodetelefono.png" style={{ width: "21px", height: "21px" }} />
+                <a className={styles.anchorText} href={`tel:${card.telefonoFijo}`}>
+                  {formatPhone(card.telefonoFijo)}
+                </a>
+              </li>
+              <li className={styles.listContact}>
+                <img src="/images/iconodecorreo.png" style={{ width: "21px", height: "21px" }} />
+                <a className={styles.anchorText} href={`mailto:${card.direccionCorreo}`}>
+                  {card.direccionCorreo}
+                </a>
+              </li>
+              <li className={styles.listContact}>
+                <img src="/images/iconodesitioweb.png" style={{ width: "21px", height: "21px" }} />
+                <a className={styles.anchorText} href={card.sitioWeb} target="_blank">
+                  {card.sitioWeb}
+                </a>
+              </li>
+              <li className={styles.listContact}>
+                <img src="/images/iconodeubicacion.png" style={{ width: "21px", height: "21px" }} />
+                <a className={styles.anchorText}>{card.direccion}</a>
+              </li>
+              <li className={styles.listContact}>
+                <img src="/images/iconodecelular.png" style={{ width: "21px", height: "21px" }} />
+                <a className={styles.anchorText} href={`tel:${card.telefonoMovil}`}>
+                  {formatPhone(card.telefonoMovil)}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <ul className={styles.unorderedList}>
-          <li className={styles.listContact}>
-            <img src="/images/iconodetelefono.png" style={{ width: "31px", height: "31px" }} />
-            <a className={styles.anchorText} href={`tel:${card.telefonoFijo}`}>
-              {formatPhone(card.telefonoFijo)}
-            </a>
-          </li>
-          <li className={styles.listContact}>
-            <img src="/images/iconodecorreo.png" style={{ width: "31px", height: "31px" }} />
-            <a className={styles.anchorText} href={`mailto:${card.direccionCorreo}`}>
-              {card.direccionCorreo}
-            </a>
-          </li>
-          <li className={styles.listContact}>
-            <img src="/images/iconodesitioweb.png" style={{ width: "31px", height: "31px" }} />
-            <a className={styles.anchorText} href={card.sitioWeb} target="_blank">
-              {card.sitioWeb}
-            </a>
-          </li>
-          <li className={styles.listContact}>
-            <img src="/images/iconodeubicacion.png" style={{ width: "31px", height: "31px" }} />
-            <a className={styles.anchorText}>{card.direccion}</a>
-          </li>
-          <li className={styles.listContact}>
-            <img src="/images/iconodecelular.png" style={{ width: "31px", height: "31px" }} />
-            <a className={styles.anchorText} href={`tel:${card.telefonoMovil}`}>
-              {formatPhone(card.telefonoMovil)}
-            </a>
-          </li>
-        </ul>
-
-        <Mensaje></Mensaje>
+        <div className={styles.guardarContacto}>
+          <Mensaje title={" Guardar a tus contactos"}></Mensaje>
+          <Mensaje title={" Enviar contacto a tu E-Mail"}></Mensaje>
+        </div>
 
         <EmptyRed card={card}></EmptyRed>
       </div>

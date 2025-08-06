@@ -1,7 +1,7 @@
 "use client";
 import Styles from "../app/ui/button/button.module.css";
 
-const Mensaje = () => {
+const Mensaje = ({ title }) => {
   const handleSaveContact = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
@@ -34,7 +34,7 @@ END:VCARD`;
   return (
     <div>
       <button className={Styles.boton} onClick={handleSaveContact}>
-        Guardar contacto
+        {title}
       </button>
     </div>
   );

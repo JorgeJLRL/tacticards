@@ -2,7 +2,7 @@ import style from "./red.module.css";
 import "tailwindcss/tailwind.css";
 
 export default function EmptyRed({ card }) {
-  const styleFlex = "flex-1 items-center justify-center flex flex-col text-center flex-wrap w-[10]";
+  const styleFlex = "items-center justify-center flex flex-col text-center flex-wrap";
 
   // Helper function to chunk array into groups of 3
   const chunkArray = (arr, size) => {
@@ -94,7 +94,7 @@ export default function EmptyRed({ card }) {
           {row.map((link, linkIndex) => (
             <a
               key={`${rowIndex}-${linkIndex}`}
-              className={styleFlex}
+              className={style.styleflex}
               href={link.href}
               target={link.target}
               rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
