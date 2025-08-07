@@ -23,6 +23,7 @@ const style = {
 const inputFields = [
   { label: "Nombre de la tarjeta", propertyName: "nombreTarjeta" },
   { label: "Puesto", propertyName: "puesto" },
+  { label: "Empresa", propertyName: "empresa" },
   { label: "Teléfono fijo", propertyName: "telefonoFijo" },
   { label: "Teléfono móvil", propertyName: "telefonoMovil" },
   { label: "Dirección", propertyName: "direccion" },
