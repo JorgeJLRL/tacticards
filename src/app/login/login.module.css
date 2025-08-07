@@ -1,0 +1,32 @@
+.inputText {
+  border-radius: 1rem;
+  border: 1px solid gray;
+  width: 100%;
+  padding: 3px 20px;
+}
+
+.inputText::placeholder {
+  opacity: 0.8;
+  color: rgb(94, 90, 90);
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  gap: 1.5rem;
+}
+
+.formButton {
+  width: 250px;
+  border-radius: 1rem;
+  padding: 5px 20px;
+  background-color: #08a6b2;
+  color: white;
+  margin-top: 1rem;
+}
+
+.formButton:hover {
+  background-color: #068c99;
+}

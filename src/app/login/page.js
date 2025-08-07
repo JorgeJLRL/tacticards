@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Styles from "./../components/LandingPage/LandingPage.css";
+import styles from "./login.module.css";
 import axios from "axios";
 import { useUserStore } from "./../../stores/userStore";
 import { Button, TextField } from "@mui/material";
@@ -40,31 +40,34 @@ export default function Login() {
 
   return (
     <div className="bannertarjetas">
-      <div className="w-full h-screen">
-        <div className="w-[80%] h-[50%] rounded-2xl relative p-12 bg-white top-20 mx-auto my-0">
-          <p className="text-3xl font-Nexa font-bold font-GothicSans text-center py-8">Portal Cliente TáctiCards</p>
+      <div className="w-full h-screen bg-gradient-to-b from-sky-200 to-neutral-200">
+        <div className="w-[60%] h-[60%] rounded-2xl relative p-12 bg-white top-20 mx-auto my-0">
+          <p className="text-3xl font-Nexa font-bold font-GothicSans text-center py-8 mb-10">
+            Portal Cliente TáctiCards
+          </p>
           <div className="items-center w-full justify-center flex flex-col">
-            <form>
-              <div className="flex flex-col items-center justify-center w-full">
-                <TextField
-                  className={InputLogin}
-                  placeholder="Usuario o correo electronico"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  margin="normal"
-                ></TextField>
-                <TextField
-                  className={InputLogin}
-                  placeholder="Contraseña"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  margin="normal"
-                ></TextField>
-              </div>
-              <Button type="submit" variant="contained" className="w-full" onClick={handleSubmit}>
-                Submit
-              </Button>
+            <form className={styles.formContainer}>
+              <input
+                type="email"
+                className={styles.inputText}
+                placeholder="Usuario o correo electronico"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                margin="normal"
+                required
+              ></input>
+              <input
+                className={styles.inputText}
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                margin="normal"
+                required
+              ></input>
+              <button type="submit" variant="contained" className={styles.formButton} onClick={handleSubmit}>
+                Entrar
+              </button>
             </form>
           </div>
         </div>
