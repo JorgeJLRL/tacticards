@@ -3,7 +3,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import React, { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
 export default function Menu() {
   const pathname = usePathname();
@@ -31,7 +31,7 @@ export default function Menu() {
     }
   }, []);
 
-  if (pathname.includes('/dashboard')) {
+  if (pathname.includes("/dashboard")) {
     return null; // don't render the menu if the URL includes /dashboard
   }
 
@@ -45,11 +45,7 @@ export default function Menu() {
         // Pantalla ancha (más de 900px)
         <div className="flex items-center justify-between px-4 h-full">
           <div className="flex justify-center flex-1">
-            <img
-              src="/images/Logo.png"
-              className="TacticardsLogoHeader"
-              alt="Logo"
-            />
+            <img src="/images/Logo.png" className="TacticardsLogoHeader" alt="Logo" />
           </div>
           <div className="flex flex-[2] justify-center items-centerjj">
             <ul className="flex list-none font-CenturyGothic font-normal">
@@ -63,7 +59,9 @@ export default function Menu() {
               <Link href="#contactanos">
                 <li className="px-10">Contacto</li>
               </Link>
-              <li className="px-10">Plataforma Cliente</li>
+              <Link href={localStorage.getItem("token") ? "/dashboard/cards" : "/login"}>
+                <li className="px-10">Plataforma Cliente</li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -71,11 +69,7 @@ export default function Menu() {
         // Pantalla pequeña (menos de 900px)
         <div className="flex items-center justify-between h-full px-4">
           <div className="flex-1 flex justify-center">
-            <img
-              src="/images/Logo.png"
-              className="TacticardsLogoHeader"
-              alt="Logo"
-            />
+            <img src="/images/Logo.png" className="TacticardsLogoHeader" alt="Logo" />
           </div>
           {value ? (
             <div className="flex items-center justify-end">
