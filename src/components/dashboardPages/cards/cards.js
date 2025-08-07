@@ -15,6 +15,9 @@ import { Button } from "@mui/material";
 import CardsModal from "./modal";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useUserStore } from "./../../../stores/userStore";
+import styles from "./cards.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
 const columns = [
   { label: "Nombre de la tarjeta", propertyName: "nombreTarjeta" },
@@ -31,6 +34,7 @@ export default function Cards() {
   const [openModal, setOpenModal] = React.useState(false);
   const [data, setData] = React.useState([]);
   const userId = useUserStore((state) => state.userId);
+  const [searchState, setSearchState] = React.useState("");
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -47,9 +51,17 @@ export default function Cards() {
 
   const closeModal = () => setOpenModal(false);
 
+  function handleInputChange(event) {
+    setSearchState(event.target.value);
+  }
+
+  const filteredCards = data.filter((card) => card.nombreTarjeta.toLowerCase().includes(searchState.toLowerCase()));
+
   const addCard = (card) => {
     setData([...data, card]);
   };
+
+  console.log(data);
 
   return (
     <div className="p-4">
@@ -59,7 +71,39 @@ export default function Cards() {
           Nuevo
         </Button>
       </div>
-      <TableContainer component={Paper}>
+      <div className={styles.dashboardCards}>
+        <h2 className={styles.cardsTitle}>Mis Tarjetas</h2>
+        <input
+          type="search"
+          placeholder="Nombre de Tarjeta"
+          className={styles.inputSearchCard}
+          onChange={handleInputChange}
+          value={searchState}
+        />
+        <React.Suspense fallback={<p>Cargando...</p>}>
+          <div className={styles.cardsContainer}>
+            {filteredCards.map((card) => (
+              <li key={card.id} className={styles.cardItem}>
+                <img src={card.fotoPerfil} className={styles.cardFoto}></img>
+                <div className={styles.cardItemInfo}>
+                  <p className={styles.cardItemNombre}>{card.nombreTarjeta}</p>
+                  <p>{card.puesto}</p>
+                  <p>{card.empresa}</p>
+                  <Link href={`/CardInfo?cardId=${card.id}`} className={styles.verTarjetaButton}>
+                    <p>Ver Tarjeta</p>
+                    <img src="/images/eye-solid-full.svg" style={{ width: "21px", height: "21px" }}></img>
+                  </Link>
+                  <div className={styles.verTarjetaButton}>
+                    <p>Editar Tarjeta</p>
+                    <img src="/images/pencil-solid-full.svg" style={{ width: "21px", height: "21px" }}></img>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </div>
+        </React.Suspense>
+      </div>
+      {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -86,7 +130,7 @@ export default function Cards() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </TableContainer> */}
     </div>
   );
 }

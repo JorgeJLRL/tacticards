@@ -1,6 +1,6 @@
 // src/app/dashboard/page.js
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useUserStore } from "./../../../stores/userStore";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -8,18 +8,26 @@ import Link from "next/link";
 function DashboardContainer({ content }) {
   const setUserToken = useUserStore((state) => state.setUserToken);
   const setUserId = useUserStore((state) => state.setUserId);
-  const nombreUsuario = localStorage.getItem("nombre");
-  const correoUsuario = localStorage.getItem("correo");
+  const [nombre, setNombre] = useState("");
+  const [correo, setCorreo] = useState("");
   const router = useRouter();
   useEffect(() => {
     const storageToken = localStorage.getItem("token");
     const storageUserId = localStorage.getItem("userId");
+    const nombreUsuario = localStorage.getItem("nombre");
+    const correoUsuario = localStorage.getItem("correo");
 
     if (storageToken) {
       setUserToken(storageToken);
     }
     if (storageUserId) {
       setUserId(storageUserId);
+    }
+    if (nombreUsuario) {
+      setNombre(nombreUsuario);
+    }
+    if (correoUsuario) {
+      setCorreo(correoUsuario);
     }
   });
 
@@ -34,8 +42,8 @@ function DashboardContainer({ content }) {
     <div className="h-screen">
       <div className="bg-white p-4 shadow-md w-full flex justify-between">
         <div>
-          <h2 className="text-lg font-bold">Welcome, {nombreUsuario ? nombreUsuario : "John Doe"}</h2>
-          <p className="text-gray-600">{correoUsuario}</p>
+          <h2 className="text-lg font-bold">Bienvenido, {nombre ? nombre : "John Doe"}</h2>
+          <p className="text-gray-600">{correo}</p>
         </div>
         <button
           onClick={handleLogout}
@@ -62,7 +70,7 @@ function DashboardContainer({ content }) {
           </ul>
         </div>
         {/* Main Content */}
-        <div className="flex-1">{content}</div>
+        <div className="flex-1 bg-gradient-to-b from-sky-100 to-neutral-200">{content}</div>
       </div>
     </div>
   );
