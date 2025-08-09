@@ -16,16 +16,6 @@ export default function Red() {
     email: "mailto:dr.sototyo@gmail.com",
   };
 
-  const formatPhone = (phone) => {
-    if (!phone) return "";
-    const phoneArray = phone.split("");
-    phoneArray.unshift("(");
-    phoneArray.splice(4, 0, ")");
-    phoneArray.splice(5, 0, " ");
-    phoneArray.splice(9, 0, " ");
-    return phoneArray.join("");
-  };
-
   return (
     <div className="md:w-[70%] my-0 mx-auto">
       <div className={style.boxflex}>

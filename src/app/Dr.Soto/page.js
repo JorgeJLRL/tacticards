@@ -1,6 +1,5 @@
-import styles from "../ui/imgBgUser.module.css";
+import styles from "./user.module.css";
 import Mensaje from "./contact.client";
-import React from "react";
 import Red from "./red";
 
 export default function User() {
