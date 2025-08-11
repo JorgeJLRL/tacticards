@@ -12,7 +12,7 @@ export default function User() {
   const correo = "dr.sototyo@gmail.com";
   const sitioweb = "";
   const ubicacion = "Hospital San José (Consultorio 317). Blvd. Sosa Chávez 302, Juárez, 85870, Navojoa, Son.";
-  const telefonofijo = "6424221026 ext. 326";
+  const telefonofijo = "6424221026";
   const namecontact = "Carlos Soto%";
 
   const formatPhone = (phone) => {
@@ -44,11 +44,7 @@ export default function User() {
         <ul className={styles.unorderedList}>
           <li className={styles.listContact}>
             <img className={styles.firstsection} src="/images/Telefonowa.png" />
-            <a
-              className={styles.anchorText}
-              href={`tel:+${whatsapp}
-                    &amp;name=${namecontact}`}
-            >
+            <a className={styles.anchorText} href={`tel:+52${whatsapp}`}>
               {formatPhone(whatsapp)}
             </a>
           </li>
@@ -61,7 +57,7 @@ export default function User() {
           {sitioweb ? (
             <li className={styles.listContact}>
               <img className={styles.firstsection} src="/images/iconodesitioweb.png" />
-              <a href="https://igas.mx/" className={styles.anchorText}>
+              <a href="" className={styles.anchorText}>
                 {sitioweb}
               </a>
             </li>
@@ -74,7 +70,7 @@ export default function User() {
 
           <li className={styles.listContact}>
             <img className={styles.firstsection} src="/images/telefonofijo.png" />
-            <a className={styles.anchorText} href={`tel:+${telefonofijo}`}>
+            <a className={styles.anchorText} href={`tel:+52${telefonofijo}`}>
               {formatPhone(telefonofijo)}
             </a>
           </li>

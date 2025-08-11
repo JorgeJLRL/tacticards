@@ -9,6 +9,7 @@ export default function Red() {
     facebookurl: "https://www.facebook.com/people/Dr-Carlos-Soto/61558187087432/",
     instagramurl: "https://www.instagram.com/tuortopedista_drsoto/",
     youtubeurl: "https://www.youtube.com/@tuortopedista_drsoto",
+    tiktokurl: "https://www.tiktok.com/@tuortopedista_drsoto",
     linkedin: "",
     ubicacion: "https://maps.app.goo.gl/e1js6yvUi2voWRaz9",
     telefono: "6424221026",
@@ -54,15 +55,15 @@ export default function Red() {
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={`tel:+${persona.telefono}`}>
+          <a href={`tel:+52${persona.telefono}`}>
             <img src="/images/iconodetelefono.png" className={style.imgRed} />
             <p>Llamar</p>
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={persona.email} target="_blank">
-            <img src="/images/iconodecorreo.png" className={style.imgRed} />
-            <p>E-mail</p>
+          <a href={persona.tiktokurl} target="_blank">
+            <img src="/images/logoTiktok.png" className={style.imgRed} />
+            <p>TikTok</p>
           </a>
         </div>
       </div>
@@ -70,9 +71,14 @@ export default function Red() {
       <div className={style.boxflex}>
         <div className={styleFlex}>
           <a href={persona.ubicacion} target="_blank">
-            {" "}
             <img src="/images/iconodeubicacion.png" className={style.imgRed} />
             <p>Ubicacion</p>
+          </a>
+        </div>
+        <div className={styleFlex}>
+          <a href={persona.email} target="_blank">
+            <img src="/images/iconodecorreo.png" className={style.imgRed} />
+            <p>E-mail</p>
           </a>
         </div>
       </div>

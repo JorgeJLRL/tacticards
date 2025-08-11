@@ -7,7 +7,7 @@ const Mensaje = () => {
     const vCard = `BEGIN:VCARD
 VERSION:3.0
 FN:Dr. Carlos Soto
-TEL;TYPE=WORK,VOICE:6672237783
+TEL;TYPE=WORK,VOICE:+526672237783
 EMAIL:dr.sototyo@gmail.com
 
 
@@ -20,7 +20,7 @@ END:VCARD`;
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "Jorge Alberto Orduño Ahumada.vcf");
+      link.setAttribute("download", "Carlos Soto.vcf");
       link.style.display = "none";
       document.body.appendChild(link);
       link.click();
