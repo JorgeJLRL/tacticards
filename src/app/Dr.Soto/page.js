@@ -51,7 +51,9 @@ export default function User() {
 
           <li className={styles.listContact}>
             <img className={styles.firstsection} src="/images/Correo.png" />
-            <a className={styles.anchorText}>{correo}</a>
+            <a className={styles.anchorText} href={`mailto:${correo}`}>
+              {correo}
+            </a>
           </li>
 
           {sitioweb ? (
@@ -65,13 +67,15 @@ export default function User() {
 
           <li className={styles.listContact}>
             <img className={styles.firstsection} src="/images/ubicacion.png" />
-            <a className={styles.anchorText}>{ubicacion}</a>
+            <a className={styles.anchorText} href="https://maps.app.goo.gl/e1js6yvUi2voWRaz9">
+              {ubicacion}
+            </a>
           </li>
 
           <li className={styles.listContact}>
             <img className={styles.firstsection} src="/images/telefonofijo.png" />
             <a className={styles.anchorText} href={`tel:+52${telefonofijo}`}>
-              {formatPhone(telefonofijo)}
+              {formatPhone(telefonofijo) + " ext. 326"}
             </a>
           </li>
         </ul>

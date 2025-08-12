@@ -62,7 +62,7 @@ export default function Red() {
         </div>
         <div className={styleFlex}>
           <a href={persona.tiktokurl} target="_blank">
-            <img src="/images/logoTiktok.png" className={style.imgRed} />
+            <img src="/images/logoTikTok.png" className={style.imgRed} />
             <p>TikTok</p>
           </a>
         </div>
