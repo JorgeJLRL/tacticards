@@ -21,19 +21,19 @@ export default function Red() {
     <div className="md:w-[70%] my-0 mx-auto">
       <div className={style.boxflex}>
         <div className={styleFlex}>
-          <a href={persona.whatsappurl} target="_blank">
+          <a href={persona.whatsappurl} target="_blank" className={style.anchor}>
             <img src="/images/whatsapp.png" className={style.imgRed} />
             <p>Whatsapp</p>
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={persona.facebookurl} target="_blank">
+          <a href={persona.facebookurl} target="_blank" className={style.anchor}>
             <img src="/images/facebook.png" className={style.imgRed} />
             <p>Facebook</p>
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={persona.instagramurl} target="_blank">
+          <a className={style.anchor} href={persona.instagramurl} target="_blank">
             <img src="/images/instagram.png" className={style.imgRed} />
             <p>Instagram</p>
           </a>
@@ -41,27 +41,20 @@ export default function Red() {
       </div>
 
       <div className={style.boxflex}>
-        {/* <div className={styleFlex}>
-          <a href={persona.linkedin} target="_blank">
-            {" "}
-            <img src="/images/LogoLinkedln.png" className={style.imgRed} />
-            <p>Linkedin</p>
-          </a>
-        </div> */}
         <div className={styleFlex}>
-          <a href={persona.youtubeurl} target="_blank">
+          <a className={style.anchor} href={persona.youtubeurl} target="_blank">
             <img src="/images/logoYoutube.png" className={style.imgRed} />
             <p>YouTube</p>
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={`tel:+52${persona.telefono}`}>
+          <a className={style.anchor} href={`tel:+52${persona.telefono}`}>
             <img src="/images/iconodetelefono.png" className={style.imgRed} />
             <p>Llamar</p>
           </a>
         </div>
         <div className={styleFlex}>
-          <a href={persona.tiktokurl} target="_blank">
+          <a className={style.anchor} href={persona.tiktokurl} target="_blank">
             <img src="/images/logoTikTok.png" className={style.imgRed} />
             <p>TikTok</p>
           </a>
@@ -70,17 +63,19 @@ export default function Red() {
 
       <div className={style.boxflex}>
         <div className={styleFlex}>
-          <a href={persona.ubicacion} target="_blank">
-            <img src="/images/iconodeubicacion.png" className={style.imgRed} />
-            <p>Ubicacion</p>
-          </a>
-        </div>
-        <div className={styleFlex}>
-          <a href={persona.email} target="_blank">
+          <a className={style.anchor} href={persona.email} target="_blank">
             <img src="/images/iconodecorreo.png" className={style.imgRed} />
             <p>E-mail</p>
           </a>
         </div>
+        <div className={styleFlex}>
+          <a className={style.anchor} href={persona.ubicacion} target="_blank">
+            <img src="/images/iconodeubicacion.png" className={style.imgRed} />
+            <p>Ubicacion</p>
+          </a>
+        </div>
+
+        <div className={styleFlex}></div>
       </div>
     </div>
   );

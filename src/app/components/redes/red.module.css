@@ -7,9 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px 120px; /* row-gap col-gap */
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .styleflex {
   display: flex;
@@ -19,6 +17,11 @@
   width: 100px; /* ancho fijo para todos */
   height: 110px; /* opcional si quieres uniformidad */
   text-align: center;
+}
+.anchor img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
 }
 @media screen and (max-width: 450px) {
   .boxflex {
