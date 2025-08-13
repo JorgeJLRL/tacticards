@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import InfoFieldModal from "./infoFieldsModal.js";
 import { TextField, Grid } from "@mui/material";
+import RedesExtraModal from "./redesExtraModal.js";
 
 const style = {
   position: "absolute",
@@ -48,6 +49,7 @@ const emptyFormValues = [...inputFields, ...socialFields].reduce(
 export default function CardsModal({ openModal, closeModal, addCard }) {
   const [open, setOpen] = React.useState(false);
   const [infoModalOpen, setInfoModalOpen] = React.useState(false);
+  const [redesModalOpen, setRedesModalOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const [formValues, setFormValues] = React.useState(emptyFormValues);
   const [extraSocialFields, setExtraSocialFields] = React.useState([]);
@@ -57,6 +59,8 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
   const handleOpen = () => setOpen(true);
   const handleInfoModalOpen = () => setInfoModalOpen(true);
   const closeInfoModal = () => setInfoModalOpen(false);
+  const handleRedesModalOpen = () => setRedesModalOpen(true);
+  const closeRedesModal = () => setRedesModalOpen(false);
   const handleClose = () => {
     setExtraSocialFields([]);
     setExtraInfoFields([]);
@@ -66,6 +70,7 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     closeModal();
     setFormValues(emptyFormValues);
   };
+  console.log(extraSocialFields);
 
   React.useEffect(() => {
     if (openModal) {
@@ -111,14 +116,14 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     }
   };
 
-  const handleAddSocialField = () => {
+  const handleAddSocialField = (nombreRed, linkRed, iconoRed) => {
     setExtraSocialFields((prev) => [
       ...prev,
       {
         id: `red-${prev.length + 1}`,
-        iconoRed: "",
-        linkRed: "",
-        nombreRed: "",
+        iconoRed: iconoRed,
+        linkRed: linkRed,
+        nombreRed: nombreRed,
       },
     ]);
   };
@@ -164,6 +169,11 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
   return (
     <div>
       <InfoFieldModal openInfoModal={infoModalOpen} closeInfoModal={closeInfoModal} addField={handleAddInfoField} />
+      <RedesExtraModal
+        openRedesModal={redesModalOpen}
+        closeRedesModal={closeRedesModal}
+        addSocialField={handleAddSocialField}
+      />
       <Modal
         open={open}
         onClose={handleClose}
@@ -326,47 +336,37 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
                 </Grid>
               ))}
             </Grid>
-            <Grid container spacing={2} sx={{ alignItems: "end" }}>
+            <Grid container spacing={2} sx={{ alignItems: "center", width: "100%", justifyContent: "center" }}>
               {extraSocialFields.map((field, i) => (
-                <React.Fragment key={field.id}>
-                  <Grid item xs={6}>
-                    <input
-                      accept="image/*"
-                      type="file"
-                      id={`upload-red-${field.id}`}
-                      style={{ display: "none" }}
-                      onChange={(e) => handleImageChangeExtra(e, field.id)}
-                    />
-                    <label htmlFor={`upload-red-${field.id}`}>
-                      <Button variant="outlined" component="span" fullWidth sx={{ textTransform: "none" }}>
-                        {field.iconoRed ? "Cambiar icono" : "Subir icono de red"}
-                      </Button>
-                    </label>
-                  </Grid>
-                  <Grid item xs={3}>
-                    <TextField
-                      fullWidth
-                      label="Nombre red"
-                      variant="standard"
-                      value={field.nombreRed}
-                      onChange={(e) => handleChangeSocialField(field.id, "nombreRed", e.target.value)}
-                    />
-                  </Grid>
-                  <Grid item xs={3}>
-                    <TextField
-                      fullWidth
-                      label="Link"
-                      variant="standard"
-                      value={field.linkRed}
-                      onChange={(e) => handleChangeSocialField(field.id, "linkRed", e.target.value)}
-                    />
-                  </Grid>
-                </React.Fragment>
+                <Grid
+                  item
+                  xs={extraSocialFields.length % 2 !== 0 && i === extraSocialFields.length - 1 ? 12 : 6}
+                  key={field.id}
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <img src={`/images/${field.iconoRed}`} style={{ width: "30px", height: "30px" }}></img>
+                  <input
+                    type="text"
+                    name={field.nombreRed}
+                    onChange={(e) => handleChangeSocialField(field.id, "linkRed", e.target.value)}
+                    value={field.linkRed}
+                    placeholder={field.nombreRed ? field.nombreRed : "Nombre de la red"}
+                    style={{
+                      width: "100%",
+                      flex: 1,
+                      padding: "8px",
+                      marginBottom: "8px",
+                      borderRadius: "1rem",
+                      backgroundColor: "#f5f5f5",
+                      color: "black",
+                    }}
+                  />
+                </Grid>
               ))}
             </Grid>
             <div className="flex self-center text-center justify-center mt-4">
               <Button
-                onClick={handleAddSocialField}
+                onClick={handleRedesModalOpen}
                 variant="outlined"
                 sx={{
                   borderRadius: "50%",
