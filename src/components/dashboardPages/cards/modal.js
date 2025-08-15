@@ -153,6 +153,14 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     setInfoModalOpen(false);
   };
 
+  function handleDeleteInfoField(id) {
+    setExtraInfoFields((prev) => prev.filter((item) => item.id !== id));
+  }
+
+  function handleDeleteSocialField(id) {
+    setExtraSocialFields((prev) => prev.filter((item) => item.id !== id));
+  }
+
   function formatFieldName(fieldName) {
     if (!fieldName) return "";
     const formatted = fieldName.replace(/-/g, " ");
@@ -259,22 +267,22 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
             ))}
             {extraInfoFields.map((field) => {
               return (
-                <input
-                  type="text"
-                  name={field.id}
-                  onChange={(e) => handleChangeInfoField(field.id, e.target.value)}
-                  value={field.value}
-                  placeholder={field.placeholder}
-                  key={field.id}
-                  style={{
-                    width: "100%",
-                    padding: "8px",
-                    marginBottom: "8px",
-                    borderRadius: "1rem",
-                    backgroundColor: "#f5f5f5",
-                    color: "black",
-                  }}
-                ></input>
+                <div key={field.id} className="relative mb-4 w-full">
+                  <input
+                    type="text"
+                    name={field.id}
+                    onChange={(e) => handleChangeInfoField(field.id, e.target.value)}
+                    value={field.value}
+                    placeholder={field.placeholder}
+                    className="w-full pr-20 pl-4 py-2 rounded-full bg-gray-100 text-black"
+                  />
+                  <button
+                    onClick={() => handleDeleteInfoField(field.id)}
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600"
+                  >
+                    X
+                  </button>
+                </div>
               );
             })}
             <div className="flex self-center text-center justify-center mt-4 mb-4">
@@ -337,6 +345,7 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
                   item
                   xs={extraSocialFields.length % 2 !== 0 && i === extraSocialFields.length - 1 ? 12 : 6}
                   key={field.id}
+                  className="relative"
                   style={{ display: "flex", alignItems: "center", gap: "10px" }}
                 >
                   <img
@@ -359,6 +368,12 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
                       color: "black",
                     }}
                   />
+                  <button
+                    onClick={() => handleDeleteSocialField(field.id)}
+                    className="absolute right-0 top-5 transform -translate-y-1/2 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
+                  >
+                    X
+                  </button>
                 </Grid>
               ))}
             </Grid>
