@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import InfoFieldModal from "./infoFieldsModal.js";
-import { TextField, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import RedesExtraModal from "./redesExtraModal.js";
 
 const style = {
@@ -100,7 +100,12 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formValues, redesExtra: extraSocialFields, user: localStorage.getItem("userId") }),
+        body: JSON.stringify({
+          ...formValues,
+          extraInfoFields: extraInfoFields,
+          redesExtra: extraSocialFields,
+          user: localStorage.getItem("userId"),
+        }),
       });
       const data = await response.json();
       addCard(data.data);
@@ -121,8 +126,8 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
       {
         id: `red-${prev.length + 1}`,
         iconoRed: iconoRed,
-        linkRed: linkRed,
         nombreRed: nombreRed,
+        linkRed: linkRed,
         isCustom: isCustom,
       },
     ]);
@@ -140,8 +145,9 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
       ...prev,
       {
         id: `${infoField}-${prev.length + 1}`,
-        [infoField]: "",
+        value: "",
         placeholder: placeholder,
+        name: infoField,
       },
     ]);
     setInfoModalOpen(false);
@@ -153,8 +159,8 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     return formatted.charAt(0).toUpperCase() + formatted.slice(1);
   }
 
-  const handleChangeInfoField = (id, field, value) => {
-    setExtraInfoFields((prev) => prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
+  const handleChangeInfoField = (id, value) => {
+    setExtraInfoFields((prev) => prev.map((item) => (item.id === id ? { ...item, value } : item)));
   };
 
   const handleImageChangeExtra = (e, id) => {
@@ -165,6 +171,7 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     };
     reader.readAsDataURL(file);
   };
+  console.log("Extra Social Fields:", extraSocialFields);
 
   return (
     <div>
@@ -232,18 +239,6 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
             </div>
             {inputFields.map((field, index) => (
               <Grid item xs={12} key={field.propertyName}>
-                {/* <TextField
-                  fullWidth={true}
-                  xs={12}
-                  sx={{ backgroundColor: "#f5f5f5", borderRadius: "1rem" }}
-                  margin="normal"
-                  InputProps
-                  label={field.label}
-                  variant="standard"
-                  name={field.propertyName}
-                  onChange={(e) => setFormValues({ ...formValues, [e.target.name]: e.target.value })}
-                  value={formValues[field.propertyName]}
-                /> */}
                 <input
                   type="text"
                   name={field.propertyName}
@@ -263,13 +258,12 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
               </Grid>
             ))}
             {extraInfoFields.map((field) => {
-              const fieldName = Object.keys(field).find((k) => k !== "id");
               return (
                 <input
                   type="text"
                   name={field.id}
-                  onChange={(e) => handleChangeInfoField(field.id, fieldName, e.target.value)}
-                  value={field[fieldName]}
+                  onChange={(e) => handleChangeInfoField(field.id, e.target.value)}
+                  value={field.value}
                   placeholder={field.placeholder}
                   key={field.id}
                   style={{
