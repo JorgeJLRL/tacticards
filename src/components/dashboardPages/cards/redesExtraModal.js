@@ -2,7 +2,7 @@ import { Box, Button, Modal } from "@mui/material";
 import AgregarLinkModal from "./agregarLinkModal";
 import React from "react";
 
-export default function RedesExtraModal({ openRedesModal, closeRedesModal, addSocialField }) {
+export default function RedesExtraModal({ openRedesModal, closeRedesModal, addSocialField, changeCustomIcon }) {
   const [agregarLinkModal, setAgregarLinkModal] = React.useState(false);
   const [isCustomIcon, setIsCustomIcon] = React.useState(false);
   const [linkTitle, setLinkTitle] = React.useState("");
@@ -57,6 +57,7 @@ export default function RedesExtraModal({ openRedesModal, closeRedesModal, addSo
         linkTitle={linkTitle}
         linkImg={linkImg}
         isCustom={isCustomIcon}
+        changeCustomIcon={changeCustomIcon}
       />
       <Modal
         open={!!openRedesModal}
@@ -172,6 +173,24 @@ export default function RedesExtraModal({ openRedesModal, closeRedesModal, addSo
               </button>
             ))}
           </div>
+          <h3 id="modal-modal-title" className="mb-4 text-center font-semibold mt-4">
+            Personalizado
+          </h3>
+          <div className="flex w-full items-center  justify-center">
+            <button
+              className="flex flex-col items-center mb-4"
+              onClick={() => {
+                setIsCustomIcon(true);
+                handleLinkModalOpen("Personalizado", "");
+              }}
+            >
+              <div className="w-16 h-16 mb-2 items-center flex  flex-col justify-center  rounded-2xl border-2 border-gray-400 hover:border-gray-600 cursor-pointer">
+                <span className="self-center">+</span>
+              </div>
+              <span className="text-sm">Agregar Personalizado</span>
+            </button>
+          </div>
+
           <div className="flex gap-4 justify-end mt-4">
             <Button onClick={closeRedesModal} sx={{ mt: 2, ml: 2 }}>
               Cerrar
