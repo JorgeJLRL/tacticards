@@ -70,7 +70,6 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     closeModal();
     setFormValues(emptyFormValues);
   };
-  console.log(extraSocialFields);
 
   React.useEffect(() => {
     if (openModal) {
@@ -116,7 +115,7 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     }
   };
 
-  const handleAddSocialField = (nombreRed, linkRed, iconoRed) => {
+  const handleAddSocialField = (nombreRed, linkRed, iconoRed, isCustom) => {
     setExtraSocialFields((prev) => [
       ...prev,
       {
@@ -124,6 +123,7 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
         iconoRed: iconoRed,
         linkRed: linkRed,
         nombreRed: nombreRed,
+        isCustom: isCustom,
       },
     ]);
   };
@@ -173,6 +173,7 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
         openRedesModal={redesModalOpen}
         closeRedesModal={closeRedesModal}
         addSocialField={handleAddSocialField}
+        changeCustomIcon={handleImageChangeExtra}
       />
       <Modal
         open={open}
@@ -344,7 +345,10 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
                   key={field.id}
                   style={{ display: "flex", alignItems: "center", gap: "10px" }}
                 >
-                  <img src={`/images/${field.iconoRed}`} style={{ width: "30px", height: "30px" }}></img>
+                  <img
+                    src={field.isCustom ? field.iconoRed : `/images/${field.iconoRed}`}
+                    style={{ width: "30px", height: "30px" }}
+                  ></img>
                   <input
                     type="text"
                     name={field.nombreRed}
