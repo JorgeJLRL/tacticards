@@ -19,7 +19,7 @@ export default function EmptyRed({ card }) {
   if (card.telefonoMovil) {
     socialLinks.push({
       href: `https://wa.me/${card.telefonoMovil.replace(/[^0-9]/g, "")}`,
-      icon: "/images/whatsapp.png",
+      icon: "whatsapp.png",
       label: "Whatsapp",
     });
   }
@@ -27,7 +27,7 @@ export default function EmptyRed({ card }) {
   if (card.facebook) {
     socialLinks.push({
       href: card.facebook,
-      icon: "/images/facebook.png",
+      icon: "facebook.png",
       label: "Facebook",
       target: "_blank",
     });
@@ -36,7 +36,7 @@ export default function EmptyRed({ card }) {
   if (card.instagram) {
     socialLinks.push({
       href: card.instagram,
-      icon: "/images/instagram.png",
+      icon: "instagram.png",
       label: "Instagram",
       target: "_blank",
     });
@@ -45,7 +45,7 @@ export default function EmptyRed({ card }) {
   if (card.linkedIn) {
     socialLinks.push({
       href: card.linkedIn,
-      icon: "/images/linkedin.png",
+      icon: "linkedin.png",
       label: "LinkedIn",
       target: "_blank",
     });
@@ -54,7 +54,7 @@ export default function EmptyRed({ card }) {
   if (card.whatsappBusiness) {
     socialLinks.push({
       href: `https://wa.me/${card.whatsappBusiness.replace(/[^0-9]/g, "")}`,
-      icon: "/images/unnamed.png",
+      icon: "unnamed.png",
       label: "WhatsApp Business",
     });
   }
@@ -62,7 +62,7 @@ export default function EmptyRed({ card }) {
   if (card.sitioWeb) {
     socialLinks.push({
       href: card.sitioWeb,
-      icon: "/images/iconodesitioweb.png",
+      icon: "iconodesitioweb.png",
       label: "Sitio Web",
       target: "_blank",
     });
@@ -71,7 +71,7 @@ export default function EmptyRed({ card }) {
   if (card.direccionCorreo) {
     socialLinks.push({
       href: `mailto:${card.direccionCorreo}`,
-      icon: "/images/iconodecorreo.png",
+      icon: "iconodecorreo.png",
       label: "E-mail",
     });
   }
@@ -81,11 +81,28 @@ export default function EmptyRed({ card }) {
       href: red.linkRed,
       icon: red.iconoRed,
       label: red.nombreRed,
+      isCustom: red.isCustom,
     });
   });
 
   // Chunk the social links into groups of 3
   const rows = chunkArray(socialLinks, 3);
+  function formatLink(href) {
+    if (!href) return "#";
+
+    // ✅ Caso email
+    if (href.includes("@") && !href.startsWith("mailto:")) {
+      return `mailto:${href}`;
+    }
+
+    // ✅ Caso URL con http/https
+    if (href.startsWith("http://") || href.startsWith("https://")) {
+      return href;
+    }
+
+    // ✅ Caso URL sin protocolo
+    return `https://${href}`;
+  }
 
   return (
     <div>
@@ -95,11 +112,19 @@ export default function EmptyRed({ card }) {
             <a
               key={`${rowIndex}-${linkIndex}`}
               className={style.styleflex}
-              href={link.href}
+              href={
+                link.href.startsWith("http") || link.href.startsWith("https") || link.href.startsWith("mailto:")
+                  ? link.href
+                  : formatLink(link.href)
+              }
               target={link.target}
               rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
             >
-              <img src={link.icon} className={style.imgRed} alt={link.label} />
+              <img
+                src={!link.isCustom ? `/images/${link.icon}` : link.icon}
+                className={style.imgRed}
+                alt={link.label}
+              />
               <p>{link.label}</p>
             </a>
           ))}

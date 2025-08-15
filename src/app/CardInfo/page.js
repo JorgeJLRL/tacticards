@@ -38,6 +38,33 @@ function CardInfoClient() {
     return phoneArray.join("");
   };
 
+  console.log(card.extraInfoFields);
+
+  function formatHref(field) {
+    if (!field?.value) return "#";
+
+    // 📞 Teléfono
+    if (field.name.startsWith("telefono")) {
+      return `tel:${field.value}`;
+    }
+
+    // 📧 Email
+    if (field.name.startsWith("email")) {
+      return field.value.startsWith("mailto:") ? field.value : `mailto:${field.value}`;
+    }
+
+    // 🌐 Sitio web
+    if (field.name.startsWith("web") || field.name.startsWith("sitio") || field.name.startsWith("ubicacion")) {
+      if (field.value.startsWith("http://") || field.value.startsWith("https://")) {
+        return field.value;
+      }
+      return `https://${field.value}`;
+    }
+
+    // 🔗 Por defecto lo tratamos como URL
+    return field.value;
+  }
+
   return (
     <div className={styles.imagebg}>
       <div className={styles.imageBoxBackground}>
@@ -52,6 +79,7 @@ function CardInfoClient() {
           <div className={styles.infoContact}>
             <div className={styles.nombreCard}>
               <h2>{card.nombreTarjeta}</h2>
+              {card.empresa ? <p>{card.empresa}</p> : null}
               <p>{card.puesto}</p>
             </div>
             <ul className={styles.unorderedList}>
@@ -83,6 +111,16 @@ function CardInfoClient() {
                   {formatPhone(card.telefonoMovil)}
                 </a>
               </li>
+              {card.extraInfoFields?.map((field) => {
+                return (
+                  <li className={styles.listContact}>
+                    <img src={`/images/${field.name}.png`} style={{ width: "21px", height: "21px" }} />
+                    <a className={styles.anchorText} href={formatHref(field)}>
+                      {field.name.startsWith("telefono") ? formatPhone(field.value) : field.value}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
