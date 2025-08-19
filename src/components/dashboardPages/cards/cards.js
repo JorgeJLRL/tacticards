@@ -7,6 +7,7 @@ import CardsModal from "./modal";
 import { useUserStore } from "./../../../stores/userStore";
 import styles from "./cards.module.css";
 import Link from "next/link";
+import ModificarCardModal from "./modificarCardModal";
 
 /* const columns = [
   { label: "Nombre de la tarjeta", propertyName: "nombreTarjeta" },
@@ -21,6 +22,8 @@ import Link from "next/link";
 
 export default function Cards() {
   const [openModal, setOpenModal] = React.useState(false);
+  const [openModificarCardModal, setOpenModificarCardModal] = React.useState(false);
+  const [cardData, setCardData] = React.useState([]);
   const [data, setData] = React.useState([]);
   const userId = useUserStore((state) => state.userId);
   const [searchState, setSearchState] = React.useState("");
@@ -30,7 +33,13 @@ export default function Cards() {
       try {
         const response = await fetch(`http://localhost:8080/api/cardInfos/${userId}`);
         const data = await response.json();
-        setData(data);
+        const normalizedData = data.map((card) => ({
+          ...card,
+          _id: card._id || card.id,
+          redes: card.redes || [],
+          extraInfoFields: card.extraInfoFields || [],
+        }));
+        setData(normalizedData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -39,20 +48,34 @@ export default function Cards() {
   }, [userId]);
 
   const closeModal = () => setOpenModal(false);
+  const closeModificarModal = () => setOpenModificarCardModal(false);
 
   function handleInputChange(event) {
     setSearchState(event.target.value);
   }
 
-  const filteredCards = data.filter((card) => card.nombreTarjeta.toLowerCase().includes(searchState.toLowerCase()));
+  const filteredCards = data.filter((card) =>
+    (card.nombreTarjeta || "").toLowerCase().includes(searchState.toLowerCase())
+  );
 
   const addCard = (card) => {
     setData([...data, card]);
+  };
+  const updateCard = (updatedCard) => {
+    setData((prevCards) => prevCards.map((card) => (card.id === updatedCard.id ? updatedCard : card)));
   };
 
   return (
     <div className="p-4">
       <CardsModal openModal={openModal} closeModal={closeModal} addCard={addCard} />
+      {
+        <ModificarCardModal
+          openModal={openModificarCardModal}
+          closeModal={closeModificarModal}
+          updateCard={updateCard}
+          cardData={cardData}
+        />
+      }
       <div className="flex justify-end mb-4">
         <Button variant="contained" endIcon={<AddIcon />} onClick={() => setOpenModal(true)}>
           Nuevo
@@ -76,14 +99,23 @@ export default function Cards() {
                   <p className={styles.cardItemNombre}>{card.nombreTarjeta}</p>
                   <p>{card.puesto}</p>
                   <p>{card.empresa}</p>
-                  <Link href={`/CardInfo?cardId=${card.id}`} className={styles.verTarjetaButton}>
+                  <Link href={`/CardInfo?cardId=${card._id}`} className={styles.verTarjetaButton}>
+                    {" "}
+                    {/* antes era card.id */}
                     <p>Ver Tarjeta</p>
                     <img src="/images/eye-solid-full.svg" style={{ width: "21px", height: "21px" }}></img>
                   </Link>
-                  <div className={styles.verTarjetaButton}>
+                  <button
+                    className={styles.verTarjetaButton}
+                    onClick={() => {
+                      setCardData(card); // ya tiene _id
+
+                      setOpenModificarCardModal(true);
+                    }}
+                  >
                     <p>Editar Tarjeta</p>
                     <img src="/images/pencil-solid-full.svg" style={{ width: "21px", height: "21px" }}></img>
-                  </div>
+                  </button>
                 </div>
               </li>
             ))}

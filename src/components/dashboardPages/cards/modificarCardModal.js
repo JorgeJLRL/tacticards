@@ -46,7 +46,7 @@ const emptyFormValues = [...inputFields, ...socialFields].reduce(
   { fotoPerfil: "", fotoPortada: "" }
 );
 
-export default function CardsModal({ openModal, closeModal, addCard }) {
+export default function ModificarCardModal({ openModal, closeModal, updateCard, cardData }) {
   const [open, setOpen] = React.useState(false);
   const [infoModalOpen, setInfoModalOpen] = React.useState(false);
   const [redesModalOpen, setRedesModalOpen] = React.useState(false);
@@ -73,9 +73,34 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
 
   React.useEffect(() => {
     if (openModal) {
+      setFormValues({
+        ...emptyFormValues,
+        ...cardData,
+      });
+
+      setExtraInfoFields(
+        (cardData.extraInfoFields || []).map((field, idx) => ({
+          id: field.id || `${field.name}-${idx}`, // asegura un id único
+          ...field,
+        }))
+      );
+
+      setExtraSocialFields(
+        (cardData.redes || []).map((field, idx) => ({
+          id: field._id || `red-${idx}`, // 👈 importante
+          nombreRed: field.nombreRed || "",
+          linkRed: field.linkRed || "",
+          iconoRed: field.iconoRed || "default.png",
+          isCustom: field.isCustom ?? false,
+        }))
+      );
+
+      setPickedFotoPerfil(cardData.fotoPerfil || null);
+      setPickedFotoPortada(cardData.fotoPortada || null);
+
       handleOpen();
     }
-  }, [openModal]);
+  }, [openModal, cardData]);
 
   const handleImageChange = (e, type) => {
     const file = e.target.files[0];
@@ -91,24 +116,33 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
     };
     reader.readAsDataURL(file);
   };
-
   const sendForm = async () => {
     setIsLoading(true);
+
     try {
       const response = await fetch("http://localhost:8080/api/cardInfos", {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           ...formValues,
-          extraInfoFields: extraInfoFields,
+          extraInfoFields,
           redesExtra: extraSocialFields,
           user: localStorage.getItem("userId"),
+          id: cardData.id, // el id de la tarjeta que editas
         }),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Error actualizando la tarjeta");
+      }
       const data = await response.json();
-      addCard(data.data);
+      console.log(data);
+      // Actualiza la tarjeta en el estado global
+      updateCard(data);
+
       setIsLoading(false);
       setFormValues(emptyFormValues);
       setExtraSocialFields([]);
@@ -119,7 +153,6 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
       setIsLoading(false);
     }
   };
-
   const handleAddSocialField = (nombreRed, linkRed, iconoRed, isCustom) => {
     setExtraSocialFields((prev) => [
       ...prev,
@@ -209,13 +242,16 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
                   />
                   <label htmlFor={`fotoPerfil`}>
                     <Button variant="outlined" component="span" fullWidth sx={{ textTransform: "none" }}>
-                      {formValues.fotoPerfil ? "Cambiar foto de perfil" : "Subir foto de perfil"}
+                      {cardData.fotoPerfil ? "Cambiar foto de perfil" : "Subir foto de perfil"}
                     </Button>
                   </label>
                 </div>
-                {pickedFotoPerfil ? (
+                {pickedFotoPerfil || cardData.fotoPerfil ? (
                   <div className="w-40 h-40 mb-6">
-                    <img src={pickedFotoPerfil ? pickedFotoPerfil : null} className="w-40 h-40"></img>
+                    <img
+                      src={cardData.fotoPerfil || pickedFotoPerfil ? pickedFotoPerfil || cardData.fotoPerfil : null}
+                      className="w-40 h-40"
+                    ></img>
                   </div>
                 ) : null}
               </div>
@@ -234,9 +270,12 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
                     </Button>
                   </label>
                 </div>
-                {pickedFotoPortada ? (
+                {cardData.fotoPortada || pickedFotoPortada ? (
                   <div className="w-60 h-20 mb-6">
-                    <img src={pickedFotoPortada ? pickedFotoPortada : null} className="w-full h-full"></img>
+                    <img
+                      src={cardData.fotoPortada || pickedFotoPortada ? pickedFotoPortada || cardData.fotoPortada : null}
+                      className="w-full h-full"
+                    ></img>
                   </div>
                 ) : null}
               </div>
@@ -251,6 +290,7 @@ export default function CardsModal({ openModal, closeModal, addCard }) {
                   name={field.propertyName}
                   onChange={(e) => setFormValues({ ...formValues, [e.target.name]: e.target.value })}
                   value={formValues[field.propertyName]}
+                  initialvalue={cardData[field.propertyName]}
                   placeholder={field.label}
                   style={{
                     width: "100%",

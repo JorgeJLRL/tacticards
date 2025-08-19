@@ -113,7 +113,7 @@ function CardInfoClient() {
               </li>
               {card.extraInfoFields?.map((field) => {
                 return (
-                  <li className={styles.listContact}>
+                  <li className={styles.listContact} key={field.id}>
                     <img src={`/images/${field.name}.png`} style={{ width: "21px", height: "21px" }} />
                     <a className={styles.anchorText} href={formatHref(field)}>
                       {field.name.startsWith("telefono") ? formatPhone(field.value) : field.value}
