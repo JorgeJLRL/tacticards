@@ -139,7 +139,6 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
         throw new Error(errorData.message || "Error actualizando la tarjeta");
       }
       const data = await response.json();
-      console.log(data);
       // Actualiza la tarjeta en el estado global
       updateCard(data);
 

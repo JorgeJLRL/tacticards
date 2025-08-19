@@ -33,12 +33,14 @@ export default function Cards() {
       try {
         const response = await fetch(`http://localhost:8080/api/cardInfos/${userId}`);
         const data = await response.json();
+
         const normalizedData = data.map((card) => ({
           ...card,
           _id: card._id || card.id,
           redes: card.redes || [],
           extraInfoFields: card.extraInfoFields || [],
         }));
+
         setData(normalizedData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -99,9 +101,9 @@ export default function Cards() {
                   <p className={styles.cardItemNombre}>{card.nombreTarjeta}</p>
                   <p>{card.puesto}</p>
                   <p>{card.empresa}</p>
-                  <Link href={`/CardInfo?cardId=${card._id}`} className={styles.verTarjetaButton}>
+                  <Link href={`/CardInfo?cardId=${card.id}`} className={styles.verTarjetaButton}>
                     {" "}
-                    {/* antes era card.id */}
+                    {/* antes era card._id */}
                     <p>Ver Tarjeta</p>
                     <img src="/images/eye-solid-full.svg" style={{ width: "21px", height: "21px" }}></img>
                   </Link>

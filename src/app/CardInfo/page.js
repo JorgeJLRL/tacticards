@@ -38,8 +38,6 @@ function CardInfoClient() {
     return phoneArray.join("");
   };
 
-  console.log(card.extraInfoFields);
-
   function formatHref(field) {
     if (!field?.value) return "#";
 
