@@ -40,12 +40,12 @@ export default function Login() {
   return (
     <div className="bannertarjetas">
       <div className="w-full h-screen bg-gradient-to-b from-sky-200 to-neutral-200">
-        <div className="w-[60%] h-[60%] rounded-2xl relative p-12 bg-white top-20 mx-auto my-0">
+        <div className="w-[60%] h-[60%] rounded-2xl relative p-12 bg-white top-20 mx-auto my-0 max-xs:w-[90%]">
           <p className="text-3xl font-Nexa font-bold font-GothicSans text-center py-8 mb-10">
             Portal Cliente TáctiCards
           </p>
-          <div className="items-center w-full justify-center flex flex-col">
-            <form className={styles.formContainer}>
+          <div className="items-center w-full justify-center flex flex-col max-xs:w-full">
+            <form className="flex flex-col align-middle w-[60%] gap-6 max-xs:w-full">
               <input
                 type="email"
                 className={styles.inputText}
@@ -64,7 +64,12 @@ export default function Login() {
                 margin="normal"
                 required
               ></input>
-              <button type="submit" variant="contained" className={styles.formButton} onClick={handleSubmit}>
+              <button
+                type="submit"
+                variant="contained"
+                className="w-full rounded-2xl py-1 px-5 bg-cyan-500 text-white mt-4 hover:bg-cyan-600"
+                onClick={handleSubmit}
+              >
                 Entrar
               </button>
             </form>

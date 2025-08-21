@@ -163,8 +163,7 @@ export default function Cards() {
                     className={styles.verTarjetaButton}
                     onClick={() => {
                       setCardData(card); // ya tiene _id
-                      console.log("cardData", card);
-                      console.log("cardData", card.user);
+                      console.log(card.user);
                       setOpenModificarCardModal(true);
                     }}
                   >
