@@ -40,28 +40,28 @@ function DashboardContainer({ content }) {
 
   return (
     <div className="h-screen">
-      <div className="bg-white p-4 shadow-md w-full flex justify-between">
+      <div className="bg-white p-4 shadow-md w-full flex justify-between items-center w-full">
         <div>
           <h2 className="text-lg font-bold">Bienvenido, {nombre ? nombre : "John Doe"}</h2>
           <p className="text-gray-600">{correo}</p>
         </div>
         <button
           onClick={handleLogout}
-          className="p-4 rounded-md border bg-white border-blue-400 text-blue-400 hover:text-white hover:bg-blue-400 transition-all duration-200"
+          className="p-4 rounded-md border bg-white border-blue-400 text-blue-400 hover:text-white hover:bg-blue-400 transition-all duration-200 self-end"
         >
-          Logout
+          Log Out
         </button>
       </div>
-      <div className="flex h-[calc(100vh-79.5px)]">
+      <div className="flex h-[calc(100vh-79.5px)] max-xs:flex max-xs:flex-col max-xs:w-full">
         {/* Menu */}
-        <div className="bg-gray-800 text-white w-64 p-4">
+        <div className="bg-gray-800 text-white w-64 p-4 max-xs:w-full max-xs:flex max-xs: flex-col max-xs:items-center">
           <h2 className="text-lg font-bold mb-4">Menu</h2>
           <ul>
-            <li className="mb-2 ml-3">
+            {/*             <li className="mb-2 ml-3">
               <Link href="/dashboard" className="text-gray-300 hover:text-white">
                 Dashboard
               </Link>
-            </li>
+            </li> */}
             <li className="mb-2 ml-3">
               <Link href="/dashboard/cards" className="text-gray-300 hover:text-white">
                 TactiCards

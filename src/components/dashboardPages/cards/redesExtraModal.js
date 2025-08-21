@@ -66,19 +66,9 @@ export default function RedesExtraModal({ openRedesModal, closeRedesModal, addSo
         aria-describedby="modal-modal-description"
       >
         <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            bgcolor: "background.paper",
-            p: 4,
-            paddingLeft: 6,
-            borderRadius: 2,
-            boxShadow: 24,
-            minWidth: 600,
-          }}
-          className="bg-gradient-to-b from-sky-100 to-neutral-200 overflow-y-auto overflow-x-hidden max-h-[90vh]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+         w-[700px] max-h-[90vh] bg-white border-2 border-black shadow-2xl 
+         p-4 overflow-y-auto max-xs:w-[90vw] max-xs:h-[90vh] bg-gradient-to-b from-sky-100 to-neutral-200 overflow-x-hidden"
         >
           <h2 id="modal-modal-title" className="mb-4 text-center font-semibold text-2xl">
             Hipervínculos

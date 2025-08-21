@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import InfoFieldModal from "./infoFieldsModal.js";
-import { Grid } from "@mui/material";
+import { Grid, MenuItem, Select } from "@mui/material";
 import RedesExtraModal from "./redesExtraModal.js";
 
 const style = {
@@ -46,7 +46,7 @@ const emptyFormValues = [...inputFields, ...socialFields].reduce(
   { fotoPerfil: "", fotoPortada: "" }
 );
 
-export default function ModificarCardModal({ openModal, closeModal, updateCard, cardData }) {
+export default function ModificarCardModal({ openModal, closeModal, updateCard, cardData, isAdmin }) {
   const [open, setOpen] = React.useState(false);
   const [infoModalOpen, setInfoModalOpen] = React.useState(false);
   const [redesModalOpen, setRedesModalOpen] = React.useState(false);
@@ -55,7 +55,10 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
   const [extraSocialFields, setExtraSocialFields] = React.useState([]);
   const [extraInfoFields, setExtraInfoFields] = React.useState([]);
   const [pickedFotoPerfil, setPickedFotoPerfil] = React.useState();
+  const [users, setUsers] = React.useState([]);
+  const [userId, setUserId] = React.useState("");
   const [pickedFotoPortada, setPickedFotoPortada] = React.useState();
+
   const handleOpen = () => setOpen(true);
   const handleInfoModalOpen = () => setInfoModalOpen(true);
   const closeInfoModal = () => setInfoModalOpen(false);
@@ -84,6 +87,7 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
           ...field,
         }))
       );
+      setUserId(cardData.user || "");
 
       setExtraSocialFields(
         (cardData.redes || []).map((field, idx) => ({
@@ -101,6 +105,27 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
       handleOpen();
     }
   }, [openModal, cardData]);
+
+  React.useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await fetch("http://localhost:8080/api/users", {
+          headers: {
+            Authorization: token,
+          },
+        });
+        const data = await response.json();
+        if (data && data.length > 0) {
+          setUsers(data);
+          /* setUserId(data[0].id); // Set the first user as default */
+        }
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    }
+    fetchUsers();
+  }, []);
 
   const handleImageChange = (e, type) => {
     const file = e.target.files[0];
@@ -120,16 +145,18 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
     setIsLoading(true);
 
     try {
+      const token = localStorage.getItem("token");
       const response = await fetch("http://localhost:8080/api/cardInfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: token,
         },
         body: JSON.stringify({
           ...formValues,
           extraInfoFields,
           redesExtra: extraSocialFields,
-          user: localStorage.getItem("userId"),
+          user: userId, // el id del usuario al que se le asigna la tarjeta
           id: cardData.id, // el id de la tarjeta que editas
         }),
       });
@@ -227,10 +254,26 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+         w-[700px] max-h-[90vh] bg-white border-2 border-black shadow-2xl 
+         p-4 overflow-y-auto max-xs:w-[90vw] max-xs:h-[90vh]"
+        >
           <div>
+            <div className="flex self-center w-full text-center justify-center mb-6 flex-col">
+              <p className="text-black font-semibold text-lg mb-4">Asignar a usuario</p>
+              <Select value={userId} onChange={(e) => setUserId(e.target.value)} fullWidth disabled={!isAdmin}>
+                {users.length > 0
+                  ? users?.map((user) => (
+                      <MenuItem key={user.id} value={user.id}>
+                        {user.name} ({user.email})
+                      </MenuItem>
+                    ))
+                  : null}
+              </Select>
+            </div>
             <div className="flex self-center w-full text-center justify-center mb-6 gap-4">
-              <div className="w-full flex flex-col items-center gap-3">
+              <div className="w-full flex flex-col items-center gap-3 max-xs:w-[90%]">
                 <div className="w-full">
                   <input
                     accept="image/*"
@@ -246,7 +289,7 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
                   </label>
                 </div>
                 {pickedFotoPerfil || cardData.fotoPerfil ? (
-                  <div className="w-40 h-40 mb-6">
+                  <div className="w-40 h-40 mb-6 max-xs:w-[90%]">
                     <img
                       src={cardData.fotoPerfil || pickedFotoPerfil ? pickedFotoPerfil || cardData.fotoPerfil : null}
                       className="w-40 h-40"
@@ -254,7 +297,7 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
                   </div>
                 ) : null}
               </div>
-              <div className="w-full flex flex-col items-center gap-3">
+              <div className="w-full flex flex-col items-center gap-3 max-xs:w-[90%]">
                 <div className="w-full">
                   <input
                     accept="image/*"
@@ -270,7 +313,7 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
                   </label>
                 </div>
                 {cardData.fotoPortada || pickedFotoPortada ? (
-                  <div className="w-60 h-20 mb-6">
+                  <div className="w-60 h-20 mb-6 max-xs:w-[90%]">
                     <img
                       src={cardData.fotoPortada || pickedFotoPortada ? pickedFotoPortada || cardData.fotoPortada : null}
                       className="w-full h-full"

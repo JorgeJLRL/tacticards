@@ -25,16 +25,41 @@ export default function Cards() {
   const [openModificarCardModal, setOpenModificarCardModal] = React.useState(false);
   const [cardData, setCardData] = React.useState([]);
   const [data, setData] = React.useState([]);
+  const [isAdmin, setIsAdmin] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [limit, setLimit] = React.useState(6); // Número de tarjetas por página
   const userId = useUserStore((state) => state.userId);
   const [searchState, setSearchState] = React.useState("");
 
   React.useEffect(() => {
-    const fetchData = async () => {
+    async function getUserAndCards() {
       try {
-        const response = await fetch(`http://localhost:8080/api/cardInfos/${userId}`);
-        const data = await response.json();
+        if (!userId) return;
+        const token = localStorage.getItem("token");
 
-        const normalizedData = data.map((card) => ({
+        // 1. primero obtener userData
+        const userRes = await fetch(`http://localhost:8080/api/users/getUserById/${userId}`, {
+          headers: {
+            Authorization: token,
+          },
+        });
+        const userData = await userRes.json();
+        setIsAdmin(userData.isAdmin);
+
+        // 2. luego obtener las cards según si es admin o no
+        const cardsRes = await fetch(
+          userData.isAdmin
+            ? `http://localhost:8080/api/cardInfos/all`
+            : `http://localhost:8080/api/cardInfos/${userId}`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        const cardsData = await cardsRes.json();
+
+        const normalizedData = cardsData.map((card) => ({
           ...card,
           _id: card._id || card.id,
           redes: card.redes || [],
@@ -43,22 +68,46 @@ export default function Cards() {
 
         setData(normalizedData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching user/cards:", error);
       }
-    };
-    fetchData();
+    }
+
+    getUserAndCards();
   }, [userId]);
+
+  React.useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 450) {
+        setLimit(3);
+      } else {
+        setLimit(6);
+      }
+    }
+
+    // correr al inicio
+    handleResize();
+
+    // escuchar cambios de tamaño
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const closeModal = () => setOpenModal(false);
   const closeModificarModal = () => setOpenModificarCardModal(false);
 
   function handleInputChange(event) {
     setSearchState(event.target.value);
+    setPage(1); // Resetear a la primera página al cambiar el filtro
   }
 
   const filteredCards = data.filter((card) =>
     (card.nombreTarjeta || "").toLowerCase().includes(searchState.toLowerCase())
   );
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  const paginatedCards = filteredCards.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(filteredCards.length / limit);
 
   const addCard = (card) => {
     setData([...data, card]);
@@ -76,13 +125,16 @@ export default function Cards() {
           closeModal={closeModificarModal}
           updateCard={updateCard}
           cardData={cardData}
+          isAdmin={isAdmin}
         />
       }
-      <div className="flex justify-end mb-4">
-        <Button variant="contained" endIcon={<AddIcon />} onClick={() => setOpenModal(true)}>
-          Nuevo
-        </Button>
-      </div>
+      {isAdmin ? (
+        <div className="flex justify-end mb-4">
+          <Button variant="contained" endIcon={<AddIcon />} onClick={() => setOpenModal(true)}>
+            Nuevo
+          </Button>
+        </div>
+      ) : null}
       <div className={styles.dashboardCards}>
         <h2 className={styles.cardsTitle}>Mis Tarjetas</h2>
         <input
@@ -94,7 +146,7 @@ export default function Cards() {
         />
         <React.Suspense fallback={<p>Cargando...</p>}>
           <div className={styles.cardsContainer}>
-            {filteredCards.map((card) => (
+            {paginatedCards.map((card) => (
               <li key={card.id} className={styles.cardItem}>
                 <img src={card.fotoPerfil} className={styles.cardFoto}></img>
                 <div className={styles.cardItemInfo}>
@@ -111,7 +163,8 @@ export default function Cards() {
                     className={styles.verTarjetaButton}
                     onClick={() => {
                       setCardData(card); // ya tiene _id
-
+                      console.log("cardData", card);
+                      console.log("cardData", card.user);
                       setOpenModificarCardModal(true);
                     }}
                   >
@@ -121,6 +174,27 @@ export default function Cards() {
                 </div>
               </li>
             ))}
+          </div>
+          <div className="flex justify-center gap-2 mt-4 w-full align-middle">
+            <button
+              disabled={page === 1}
+              onClick={() => setPage((prev) => prev - 1)}
+              className="px-3 py-1 border rounded disabled:opacity-50 border-sky-300 hover:bg-sky-100 bg-sky-300 cursor-pointer"
+            >
+              Anterior
+            </button>
+
+            <span>
+              Página {page} de {totalPages}
+            </span>
+
+            <button
+              disabled={page === totalPages}
+              onClick={() => setPage((prev) => prev + 1)}
+              className="px-3 py-1 border rounded disabled:opacity-50  border-sky-300 hover:bg-sky-100 bg-sky-300 cursor-pointer"
+            >
+              Siguiente
+            </button>
           </div>
         </React.Suspense>
       </div>
