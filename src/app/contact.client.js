@@ -33,7 +33,10 @@ END:VCARD`;
 
   return (
     <div>
-      <button className={Styles.boton} onClick={handleSaveContact}>
+      <button
+        className="bg-gradient-to-b from-[#003458] to-[#0098ff] text-white rounded-md py-1 w-[450px] mt-2 mb-2 text-[larger]"
+        onClick={handleSaveContact}
+      >
         {title}
       </button>
     </div>
