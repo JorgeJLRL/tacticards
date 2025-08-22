@@ -5,6 +5,7 @@ import Mensaje from "../contact.client";
 import React, { Suspense, useEffect } from "react";
 import EmptyRed from "../components/redes/emptyRed.js";
 import { useSearchParams } from "next/navigation";
+import EmailModal from "./emailModal";
 export default function User() {
   return (
     <Suspense fallback={<div>Cargando...</div>}>
@@ -14,6 +15,10 @@ export default function User() {
 }
 function CardInfoClient() {
   const cardId = useSearchParams().get("cardId");
+  const [openModal, setOpenModal] = React.useState(false);
+  function closeModal() {
+    setOpenModal(false);
+  }
   const [card, setCard] = React.useState({});
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +32,45 @@ function CardInfoClient() {
     };
     fetchData();
   }, [cardId]);
+
+  async function sendMail(mail) {
+    try {
+      const res = await fetch("http://localhost:8080/api/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: mail,
+          subject: `Tarjeta de presentación digital de ${card.nombreTarjeta}`,
+          text: `Has recibido la tarjeta de ${card.nombreTarjeta}. Abre la tarjeta en el enlace: ${window.location.href}`,
+          html: `
+          <p>Has recibido la tarjeta de <strong>${card.nombreTarjeta}</strong>.</p>
+          <p>Para abrirla, haz clic en el siguiente botón:</p>
+          <a href="${window.location.href}" style="
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #003458;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+          ">Abrir tarjeta</a>
+        `,
+        }),
+      });
+
+      if (res.ok) {
+        alert("Correo enviado con éxito ✅");
+        closeModal();
+      } else {
+        alert("Error al enviar el correo ❌");
+      }
+    } catch (error) {
+      console.error("Error al enviar correo:", error);
+      alert("Error al conectar con el servidor ❌");
+    }
+  }
 
   const formatPhone = (phone) => {
     if (!phone) return "";
@@ -64,72 +108,80 @@ function CardInfoClient() {
   }
 
   return (
-    <div className={styles.imagebg}>
-      <div className={styles.imageBoxBackground}>
-        <img src={card.fotoPortada} className={styles.imageBackground} />
-      </div>
+    <>
+      <EmailModal open={openModal} closeModal={closeModal} sendMail={sendMail} />
+      <div className={styles.imagebg}>
+        <div className={styles.imageBoxBackground}>
+          <img src={card.fotoPortada} className={styles.imageBackground} />
+        </div>
 
-      <div className={styles.contentBox}>
-        <div className={styles.mainInfoContainer}>
-          <div className={styles.userImgWrapper}>
-            <img src={card.fotoPerfil} className={styles.userImg} />
-          </div>
-          <div className={styles.infoContact}>
-            <div className={styles.nombreCard}>
-              <h2>{card.nombreTarjeta}</h2>
-              {card.empresa ? <p>{card.empresa}</p> : null}
-              <p>{card.puesto}</p>
+        <div className={styles.contentBox}>
+          <div className={styles.mainInfoContainer}>
+            <div className={styles.userImgWrapper}>
+              <img src={card.fotoPerfil} className={styles.userImg} />
             </div>
-            <ul className={styles.unorderedList}>
-              <li className={styles.listContact}>
-                <img src="/images/iconodetelefono.png" style={{ width: "21px", height: "21px" }} />
-                <a className={styles.anchorText} href={`tel:${card.telefonoFijo}`}>
-                  {formatPhone(card.telefonoFijo)}
-                </a>
-              </li>
-              <li className={styles.listContact}>
-                <img src="/images/iconodecorreo.png" style={{ width: "21px", height: "21px" }} />
-                <a className={styles.anchorText} href={`mailto:${card.direccionCorreo}`}>
-                  {card.direccionCorreo}
-                </a>
-              </li>
-              <li className={styles.listContact}>
-                <img src="/images/iconodesitioweb.png" style={{ width: "21px", height: "21px" }} />
-                <a className={styles.anchorText} href={card.sitioWeb} target="_blank">
-                  {card.sitioWeb}
-                </a>
-              </li>
-              <li className={styles.listContact}>
-                <img src="/images/iconodeubicacion.png" style={{ width: "21px", height: "21px" }} />
-                <a className={styles.anchorText}>{card.direccion}</a>
-              </li>
-              <li className={styles.listContact}>
-                <img src="/images/iconodecelular.png" style={{ width: "21px", height: "21px" }} />
-                <a className={styles.anchorText} href={`tel:${card.telefonoMovil}`}>
-                  {formatPhone(card.telefonoMovil)}
-                </a>
-              </li>
-              {card.extraInfoFields?.map((field) => {
-                return (
-                  <li className={styles.listContact} key={field.id}>
-                    <img src={`/images/${field.name}.png`} style={{ width: "21px", height: "21px" }} />
-                    <a className={styles.anchorText} href={formatHref(field)}>
-                      {field.name.startsWith("telefono") ? formatPhone(field.value) : field.value}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className={styles.infoContact}>
+              <div className={styles.nombreCard}>
+                <h2>{card.nombreTarjeta}</h2>
+                {card.empresa ? <p>{card.empresa}</p> : null}
+                <p>{card.puesto}</p>
+              </div>
+              <ul className={styles.unorderedList}>
+                <li className={styles.listContact}>
+                  <img src="/images/iconodetelefono.png" style={{ width: "21px", height: "21px" }} />
+                  <a className={styles.anchorText} href={`tel:${card.telefonoFijo}`}>
+                    {formatPhone(card.telefonoFijo)}
+                  </a>
+                </li>
+                <li className={styles.listContact}>
+                  <img src="/images/iconodecorreo.png" style={{ width: "21px", height: "21px" }} />
+                  <a className={styles.anchorText} href={`mailto:${card.direccionCorreo}`}>
+                    {card.direccionCorreo}
+                  </a>
+                </li>
+                <li className={styles.listContact}>
+                  <img src="/images/iconodesitioweb.png" style={{ width: "21px", height: "21px" }} />
+                  <a className={styles.anchorText} href={card.sitioWeb} target="_blank">
+                    {card.sitioWeb}
+                  </a>
+                </li>
+                <li className={styles.listContact}>
+                  <img src="/images/iconodeubicacion.png" style={{ width: "21px", height: "21px" }} />
+                  <a className={styles.anchorText}>{card.direccion}</a>
+                </li>
+                <li className={styles.listContact}>
+                  <img src="/images/iconodecelular.png" style={{ width: "21px", height: "21px" }} />
+                  <a className={styles.anchorText} href={`tel:${card.telefonoMovil}`}>
+                    {formatPhone(card.telefonoMovil)}
+                  </a>
+                </li>
+                {card.extraInfoFields?.map((field) => {
+                  return (
+                    <li className={styles.listContact} key={field.id}>
+                      <img src={`/images/${field.name}.png`} style={{ width: "21px", height: "21px" }} />
+                      <a className={styles.anchorText} href={formatHref(field)}>
+                        {field.name.startsWith("telefono") ? formatPhone(field.value) : field.value}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div className={styles.guardarContacto}>
-          <Mensaje title={" Guardar a tus contactos"}></Mensaje>
-          <Mensaje title={" Enviar contacto a tu E-Mail"}></Mensaje>
-        </div>
+          <div className={styles.guardarContacto}>
+            <Mensaje title={" Guardar a tus contactos"}></Mensaje>
+            <button
+              className="bg-gradient-to-b from-[#003458] to-[#0098ff] text-white rounded-md py-1 w-[450px] mt-2 mb-2 text-[larger]"
+              onClick={() => setOpenModal(true)}
+            >
+              Enviar contacto a tu E-Mail
+            </button>
+          </div>
 
-        <EmptyRed card={card}></EmptyRed>
+          <EmptyRed card={card}></EmptyRed>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
