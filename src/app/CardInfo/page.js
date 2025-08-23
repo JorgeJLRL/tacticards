@@ -6,6 +6,7 @@ import React, { Suspense, useEffect } from "react";
 import EmptyRed from "../components/redes/emptyRed.js";
 import { useSearchParams } from "next/navigation";
 import EmailModal from "./emailModal";
+import ConfirmModal from "../ui/modal/confirmModal";
 export default function User() {
   return (
     <Suspense fallback={<div>Cargando...</div>}>
@@ -16,6 +17,11 @@ export default function User() {
 function CardInfoClient() {
   const cardId = useSearchParams().get("cardId");
   const [openModal, setOpenModal] = React.useState(false);
+  const [confirmModal, setConfirmModal] = React.useState(false);
+  const [modalTitle, setModalTitle] = React.useState("");
+  function closeConfirmModal() {
+    setConfirmModal(false);
+  }
   function closeModal() {
     setOpenModal(false);
   }
@@ -61,10 +67,11 @@ function CardInfoClient() {
       });
 
       if (res.ok) {
-        alert("Correo enviado con éxito ✅");
-        closeModal();
+        setModalTitle("Correo enviado correctamente");
+        setConfirmModal(true);
       } else {
-        alert("Error al enviar el correo ❌");
+        setModalTitle("Error al enviar el correo");
+        setConfirmModal(true);
       }
     } catch (error) {
       console.error("Error al enviar correo:", error);
@@ -109,7 +116,14 @@ function CardInfoClient() {
 
   return (
     <>
-      <EmailModal open={openModal} closeModal={closeModal} sendMail={sendMail} />
+      <EmailModal
+        open={openModal}
+        closeModal={closeModal}
+        sendMail={sendMail}
+        title={"Enviar contacto a un correo"}
+        text={"Envía la información de este contacto al siguiente correo:"}
+      />
+      <ConfirmModal open={confirmModal} closeModal={closeConfirmModal} title={modalTitle}></ConfirmModal>
       <div className={styles.imagebg}>
         <div className={styles.imageBoxBackground}>
           <img src={card.fotoPortada} className={styles.imageBackground} />
