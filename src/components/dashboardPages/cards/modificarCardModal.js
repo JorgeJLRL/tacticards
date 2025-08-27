@@ -110,7 +110,7 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
     async function fetchUsers() {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/users", {
+        const response = await fetch("https://api.tacticards.com.mx/api/users", {
           headers: {
             Authorization: token,
           },
@@ -146,7 +146,7 @@ export default function ModificarCardModal({ openModal, closeModal, updateCard, 
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/api/cardInfos", {
+      const response = await fetch("https://api.tacticards.com.mx/api/cardInfos", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

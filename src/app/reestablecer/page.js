@@ -22,7 +22,7 @@ export default function ReestablecerPage() {
 
     const token = new URLSearchParams(window.location.search).get("token");
 
-    const res = await fetch("http://localhost:8080/api/auth/reset-password", {
+    const res = await fetch("https://api.tacticards.com.mx/api/auth/reset-password", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token, newPassword }),

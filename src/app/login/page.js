@@ -29,7 +29,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/api/users/login", {
+      const response = await axios.post("https://api.tacticards.com.mx/api/users/login", {
         email,
         password,
       });
@@ -50,7 +50,7 @@ export default function Login() {
 
   async function handleSendMail(email) {
     try {
-      const res = await fetch("http://localhost:8080/api/auth/forgot-password", {
+      const res = await fetch("https://api.tacticards.com.mx/api/auth/forgot-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

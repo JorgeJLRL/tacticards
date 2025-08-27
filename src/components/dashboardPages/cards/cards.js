@@ -38,7 +38,7 @@ export default function Cards() {
         const token = localStorage.getItem("token");
 
         // 1. primero obtener userData
-        const userRes = await fetch(`http://localhost:8080/api/users/getUserById/${userId}`, {
+        const userRes = await fetch(`https://api.tacticards.com.mx/api/users/getUserById/${userId}`, {
           headers: {
             Authorization: token,
           },
@@ -49,8 +49,8 @@ export default function Cards() {
         // 2. luego obtener las cards según si es admin o no
         const cardsRes = await fetch(
           userData.isAdmin
-            ? `http://localhost:8080/api/cardInfos/all`
-            : `http://localhost:8080/api/cardInfos/${userId}`,
+            ? `https://api.tacticards.com.mx/api/cardInfos/all`
+            : `https://api.tacticards.com.mx/api/cardInfos/${userId}`,
           {
             headers: {
               Authorization: token,

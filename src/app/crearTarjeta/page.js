@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Page() {
   const [nombreTarjeta, setNombreTarjeta] = useState("");
   const [puesto, setPuesto] = useState("");
-  const handleSubmit = async (e) => {
+  /*   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       puesto: puesto,
@@ -14,7 +14,7 @@ export default function Page() {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/cardInfos", {
+      const response = await fetch("https://api.tacticards.com.mx/api/cardInfos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -22,9 +22,8 @@ export default function Page() {
     } catch (error) {
       console.log("error al crear tarjeta");
     }
-  };
-  const InputLogin =
-    "w-full my-2 border-solid border-2 rounded-xl placeholder:text-black";
+  }; */
+  const InputLogin = "w-full my-2 border-solid border-2 rounded-xl placeholder:text-black";
 
   return (
     <div>
@@ -43,9 +42,7 @@ export default function Page() {
           onChange={(e) => setPuesto(e.target.value)}
         ></input>
 
-        <button type="submit" onClick={handleSubmit}>
-          submit
-        </button>
+        <button type="submit" /* onClick={handleSubmit} */>submit</button>
       </form>
     </div>
   );

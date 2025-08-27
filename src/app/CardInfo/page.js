@@ -29,7 +29,7 @@ function CardInfoClient() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/cardInfos/card/${cardId}`);
+        const response = await fetch(`https://api.tacticards.com.mx/api/cardInfos/card/${cardId}`);
         const data = await response.json();
         setCard(data);
       } catch (error) {
@@ -41,7 +41,7 @@ function CardInfoClient() {
 
   async function sendMail(mail) {
     try {
-      const res = await fetch("http://localhost:8080/api/email/send", {
+      const res = await fetch("https://api.tacticards.com.mx/api/email/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
