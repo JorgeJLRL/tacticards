@@ -45,7 +45,9 @@ export default function Menu() {
         // Pantalla ancha (más de 900px)
         <div className="flex items-center justify-between px-4 h-full">
           <div className="flex justify-center flex-1">
-            <img src="/images/Logo.png" className="TacticardsLogoHeader" alt="Logo" />
+            <Link href={"/"}>
+              <img src="/images/Logo.png" className="TacticardsLogoHeader" alt="Logo" />
+            </Link>
           </div>
           <div className="flex flex-[2] justify-center items-centerjj">
             <ul className="flex list-none font-CenturyGothic font-normal">
