@@ -27,7 +27,7 @@ export default function Page() {
 
   return (
     <div>
-      <form>
+      {/* {<form>
         <input
           className={InputLogin}
           placeholder="Nombre"
@@ -42,8 +42,8 @@ export default function Page() {
           onChange={(e) => setPuesto(e.target.value)}
         ></input>
 
-        <button type="submit" /* onClick={handleSubmit} */>submit</button>
-      </form>
+        <button type="submit" onClick={handleSubmit}>submit</button>
+      </form>} */}
     </div>
   );
 }
