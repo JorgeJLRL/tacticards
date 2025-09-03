@@ -35,7 +35,7 @@ const inputFields = [
 const socialFields = [
   { label: "Facebook", propertyName: "facebook" },
   { label: "Instagram", propertyName: "instagram" },
-  { label: "LinkedIn", propertyName: "linkedIn" },
+  { label: "LinkedIn", propertyName: "linkedin" },
   { label: "Ubicación", propertyName: "ubicacion" },
   { label: "WhatsApp Business", propertyName: "whatsappBusiness" },
   { label: "Youtube", propertyName: "youtube" },
