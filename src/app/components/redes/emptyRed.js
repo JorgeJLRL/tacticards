@@ -105,7 +105,7 @@ export default function EmptyRed({ card }) {
   }
 
   return (
-    <div>
+    <div style={{ paddingBottom: "2rem" }}>
       {rows.map((row, rowIndex) => (
         <div key={rowIndex} className={style.boxflex}>
           {row.map((link, linkIndex) => (
