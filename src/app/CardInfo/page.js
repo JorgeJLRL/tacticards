@@ -136,12 +136,12 @@ function CardInfoClient() {
             </div>
             <div className={styles.infoContact}>
               <div className={styles.nombreCard}>
-                {card.nombreTarjeta?.trim() !== "-" ? <h2>{card.nombreTarjeta}</h2> : null}
-                {card.empresa && card.empresa?.trim() !== "-" ? <p>{card.empresa}</p> : null}
-                {card.puesto && card.puesto?.trim() !== "-" ? <p>{card.puesto}</p> : null}
+                {card.nombreTarjeta?.trim() !== "" ? <h2>{card.nombreTarjeta}</h2> : null}
+                {card.empresa && card.empresa?.trim() !== "" ? <p>{card.empresa}</p> : null}
+                {card.puesto && card.puesto?.trim() !== "" ? <p>{card.puesto}</p> : null}
               </div>
               <ul className={styles.unorderedList}>
-                {card.telefonoFijo?.trim() !== "-" ? (
+                {card.telefonoFijo?.trim() !== "" ? (
                   <li className={styles.listContact}>
                     <img src="/images/iconodetelefono.png" style={{ width: "21px", height: "21px" }} />
                     <a className={styles.anchorText} href={`tel:${card.telefonoFijo}`}>
@@ -149,7 +149,7 @@ function CardInfoClient() {
                     </a>
                   </li>
                 ) : null}
-                {card.direccionCorreo?.trim() !== "-" ? (
+                {card.direccionCorreo?.trim() !== "" ? (
                   <li className={styles.listContact}>
                     <img src="/images/iconodecorreo.png" style={{ width: "21px", height: "21px" }} />
                     <a className={styles.anchorText} href={`mailto:${card.direccionCorreo}`}>
@@ -157,7 +157,7 @@ function CardInfoClient() {
                     </a>
                   </li>
                 ) : null}
-                {card.sitioWeb?.trim() !== "-" ? (
+                {card.sitioWeb?.trim() !== "" ? (
                   <li className={styles.listContact}>
                     <img src="/images/iconodesitioweb.png" style={{ width: "21px", height: "21px" }} />
                     <a
@@ -173,13 +173,13 @@ function CardInfoClient() {
                     </a>
                   </li>
                 ) : null}
-                {card.direccion?.trim() !== "-" ? (
+                {card.direccion?.trim() !== "" ? (
                   <li className={styles.listContact}>
                     <img src="/images/iconodeubicacion.png" style={{ width: "21px", height: "21px" }} />
                     <a className={styles.anchorText}>{card.direccion}</a>
                   </li>
                 ) : null}
-                {card.telefonoMovil?.trim() !== "-" ? (
+                {card.telefonoMovil?.trim() !== "" ? (
                   <li className={styles.listContact}>
                     <img src="/images/iconodecelular.png" style={{ width: "21px", height: "21px" }} />
                     <a className={styles.anchorText} href={`tel:${card.telefonoMovil}`}>
