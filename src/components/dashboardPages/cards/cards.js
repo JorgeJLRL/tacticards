@@ -153,7 +153,12 @@ export default function Cards() {
                   <p className={styles.cardItemNombre}>{card.nombreTarjeta}</p>
                   <p>{card.puesto}</p>
                   <p>{card.empresa}</p>
-                  <Link href={`/CardInfo?cardId=${card.id}`} className={styles.verTarjetaButton}>
+                  <Link
+                    href={`/CardInfo?cardId=${card.id}`}
+                    className={styles.verTarjetaButton}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {" "}
                     {/* antes era card._id */}
                     <p>Ver Tarjeta</p>
