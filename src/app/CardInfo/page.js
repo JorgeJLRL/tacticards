@@ -136,39 +136,49 @@ function CardInfoClient() {
             </div>
             <div className={styles.infoContact}>
               <div className={styles.nombreCard}>
-                <h2>{card.nombreTarjeta}</h2>
-                {card.empresa ? <p>{card.empresa}</p> : null}
-                <p>{card.puesto}</p>
+                {card.nombreTarjeta.trim() !== "-" ? <h2>{card.nombreTarjeta}</h2> : null}
+                {card.empresa && card.empresa.trim() !== "-" ? <p>{card.empresa}</p> : null}
+                {card.puesto && card.puesto.trim() !== "-" ? <p>{card.puesto}</p> : null}
               </div>
               <ul className={styles.unorderedList}>
-                <li className={styles.listContact}>
-                  <img src="/images/iconodetelefono.png" style={{ width: "21px", height: "21px" }} />
-                  <a className={styles.anchorText} href={`tel:${card.telefonoFijo}`}>
-                    {formatPhone(card.telefonoFijo)}
-                  </a>
-                </li>
-                <li className={styles.listContact}>
-                  <img src="/images/iconodecorreo.png" style={{ width: "21px", height: "21px" }} />
-                  <a className={styles.anchorText} href={`mailto:${card.direccionCorreo}`}>
-                    {card.direccionCorreo}
-                  </a>
-                </li>
-                <li className={styles.listContact}>
-                  <img src="/images/iconodesitioweb.png" style={{ width: "21px", height: "21px" }} />
-                  <a className={styles.anchorText} href={card.sitioWeb} target="_blank">
-                    {card.sitioWeb}
-                  </a>
-                </li>
-                <li className={styles.listContact}>
-                  <img src="/images/iconodeubicacion.png" style={{ width: "21px", height: "21px" }} />
-                  <a className={styles.anchorText}>{card.direccion}</a>
-                </li>
-                <li className={styles.listContact}>
-                  <img src="/images/iconodecelular.png" style={{ width: "21px", height: "21px" }} />
-                  <a className={styles.anchorText} href={`tel:${card.telefonoMovil}`}>
-                    {formatPhone(card.telefonoMovil)}
-                  </a>
-                </li>
+                {card.telefonoFijo.trim() !== "-" ? (
+                  <li className={styles.listContact}>
+                    <img src="/images/iconodetelefono.png" style={{ width: "21px", height: "21px" }} />
+                    <a className={styles.anchorText} href={`tel:${card.telefonoFijo}`}>
+                      {formatPhone(card.telefonoFijo)}
+                    </a>
+                  </li>
+                ) : null}
+                {card.direccionCorreo.trim() !== "-" ? (
+                  <li className={styles.listContact}>
+                    <img src="/images/iconodecorreo.png" style={{ width: "21px", height: "21px" }} />
+                    <a className={styles.anchorText} href={`mailto:${card.direccionCorreo}`}>
+                      {card.direccionCorreo}
+                    </a>
+                  </li>
+                ) : null}
+                {card.sitioWeb.trim() !== "-" ? (
+                  <li className={styles.listContact}>
+                    <img src="/images/iconodesitioweb.png" style={{ width: "21px", height: "21px" }} />
+                    <a className={styles.anchorText} href={card.sitioWeb} target="_blank">
+                      {card.sitioWeb}
+                    </a>
+                  </li>
+                ) : null}
+                {card.direccion.trim() !== "-" ? (
+                  <li className={styles.listContact}>
+                    <img src="/images/iconodeubicacion.png" style={{ width: "21px", height: "21px" }} />
+                    <a className={styles.anchorText}>{card.direccion}</a>
+                  </li>
+                ) : null}
+                {card.telefonoMovil.trim() !== "-" ? (
+                  <li className={styles.listContact}>
+                    <img src="/images/iconodecelular.png" style={{ width: "21px", height: "21px" }} />
+                    <a className={styles.anchorText} href={`tel:${card.telefonoMovil}`}>
+                      {formatPhone(card.telefonoMovil)}
+                    </a>
+                  </li>
+                ) : null}
                 {card.extraInfoFields?.map((field) => {
                   return (
                     <li className={styles.listContact} key={field.id}>
