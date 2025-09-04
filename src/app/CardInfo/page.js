@@ -204,7 +204,7 @@ function CardInfoClient() {
           <div className={styles.guardarContacto}>
             <Mensaje title={" Guardar a tus contactos"}></Mensaje>
             <button
-              className="bg-gradient-to-b from-[#003458] to-[#0098ff] text-white rounded-md py-1 w-[450px] mt-2 mb-2 text-[larger]"
+              className="bg-gradient-to-b from-[#003458] to-[#0098ff] text-white rounded-md py-2 w-[450px] mt-2 mb-2 text-2xl"
               onClick={() => setOpenModal(true)}
             >
               Enviar contacto a tu E-Mail

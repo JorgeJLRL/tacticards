@@ -20,7 +20,7 @@ export default function EmptyRed({ card }) {
     socialLinks.push({
       href: `https://wa.me/${card.telefonoMovil.replace(/[^0-9]/g, "")}`,
       icon: "whatsapp.png",
-      label: "Whatsapp",
+      label: "WhatsApp",
     });
   }
 
@@ -72,7 +72,7 @@ export default function EmptyRed({ card }) {
     socialLinks.push({
       href: `mailto:${card.direccionCorreo}`,
       icon: "iconodecorreo.png",
-      label: "E-mail",
+      label: "E-Mail",
     });
   }
 
